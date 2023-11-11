@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model StudentData {
+  id                                    String   @id @default(uuid())
+  student_name                          String
+  student_email                         String
+  institution                           String
+  enrolment_date_time                   DateTime
+  enrolment_status                      String
+  google_cloud_skills_boost_profile_url String
+  of_courses_completed                  Int
+  of_skill_badges_completed             Int
+  of_genai_game_completed               Int
+  total_completions_of_both_pathways    Boolean  @default(false)
+  redemption_status                     Boolean  @default(false)
+}
+
+model User {
+  id        String   @id @default(uuid())
+  username  String   @unique
+  email     String?  @unique
+  name      String
+  role      Role     @default(USER)
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  USER
+  ADMIN
+}
