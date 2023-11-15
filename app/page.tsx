@@ -1,5 +1,6 @@
 import TableIndex from "@/components/TableIndex";
-import { fetchStudentData } from "@/lib/actions/student.action"
+import { fetchStudentData } from "@/lib/actions/student.action";
+
 
 export default async function Page() {
   const res = await fetchStudentData();
