@@ -4,34 +4,35 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  url      = env("POSTGRES_PRISMA_URL") // uses connection pooling
 }
 
 model StudentData {
-  id                                    String   @id @default(uuid())
+  id                                    String    @id @default(uuid())
   student_name                          String
-  student_email                         String
+  student_email                         String    @unique
   institution                           String
-  enrolment_date_time                   DateTime
+  enrolment_date_time                   String
   enrolment_status                      String
   google_cloud_skills_boost_profile_url String
   of_courses_completed                  Int
   of_skill_badges_completed             Int
-  of_genai_game_completed               Int
-  total_completions_of_both_pathways    Boolean  @default(false)
-  redemption_status                     Boolean  @default(false)
+  of_gen_ai_game_completed              Int
+  total_completions                     Int       @default(0)
+  total_completions_of_both_pathways    String    @default("No")
+  redemption_status                     String    @default("No")
+  createdAt                             DateTime? @default(now())
+  updatedAt                             DateTime? @updatedAt
 }
 
 model User {
-  id        String   @id @default(uuid())
-  username  String   @unique
-  email     String?  @unique
+  id        String    @id @default(uuid())
+  username  String    @unique
+  email     String?   @unique
   name      String
-  role      Role     @default(USER)
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  role      Role      @default(USER)
+  password  String?
+  createdAt DateTime? @default(now())
 }
 
 enum Role {

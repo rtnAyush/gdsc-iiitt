@@ -1,207 +1,45 @@
-'use client';
+import Link from 'next/link'
 
-import { Fragment } from 'react';
-import { usePathname } from 'next/navigation';
-import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { signIn, signOut } from 'next-auth/react';
-import Image from 'next/image';
+const NavBar = () => {
+    return (
+        <nav className='w-full  shadow-md relative '>
+            <div className="bg-gray-900 text-blue-500 w-full m-auto text-center p-2 flex justify-center items-center">
+                <div className=""><img src="/assets/cloudLg.png" alt="me" width="40" height="40" /></div>
+                <p className=''>
+                    Google Cloud STUDY JAMS 23 - 24
+                </p>
+            </div>
 
-const navigation = [
-  { name: 'Dashboard', href: '/' },
-  { name: 'Playground', href: '/playground' },
-  { name: 'Admin', href: '/admin' },
-];
+            <div className="p-3 flex mob:flex-col m-auto max-w-6xl justify-between items-center">
+                <Link href={'/'} className="logo mob:border-b mob:border-b-gray-200 flex justify-center items-center">
+                    <div className="img w-12 h-1w-16 rounded-full ">
+                        <img src="/assets/gdsc-logo.png" alt="me" />
+                    </div>
+                    <div className="text flex flex-col justify-start items-start">
+                        <p className="text-base">Google Devloper Student Club</p>
+                        <p className="text-xs"> IIIT TRICHY</p>
+                    </div>
+                </Link>
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ');
+                <div className="links sm:py-3 flex justify-center items-center space-x-1 sm:space-x-5">
+
+                    <Link href="https://www.linkedin.com/company/gdsc-iiitt/"><div className="cursor-pointer linkedin">
+                        <svg className='w-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" fill="#3b82f6" /></svg>
+                    </div></Link>
+                    <Link href="https://www.instagram.com/gdsc_iiitt/"><div className="cursor-pointer insta">
+
+                        <svg className='w-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" fill="#" /></svg>
+                    </div></Link>
+                    <Link href="https://twitter.com/gdsc_iiitt/"><div className="cursor-pointer twitter">
+                        <svg className='w-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z" /></svg>
+                    </div></Link>
+                    {/* <Link href="https://gdscuvpce.medium.com/"><div className="cursor-pointer medium">
+              <svg className='w-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M180.5,74.262C80.813,74.262,0,155.633,0,256S80.819,437.738,180.5,437.738,361,356.373,361,256,280.191,74.262,180.5,74.262Zm288.25,10.646c-49.845,0-90.245,76.619-90.245,171.095s40.406,171.1,90.251,171.1,90.251-76.619,90.251-171.1H559C559,161.5,518.6,84.908,468.752,84.908Zm139.506,17.821c-17.526,0-31.735,68.628-31.735,153.274s14.2,153.274,31.735,153.274S640,340.631,640,256C640,171.351,625.785,102.729,608.258,102.729Z" /></svg>
+            </div></Link> */}
+                </div>
+            </div>
+        </nav>
+    )
 }
 
-export default function Navbar({ user }: { user: any }) {
-  const pathname = usePathname();
-
-  return (
-    <Disclosure as="nav" className="bg-white shadow-sm">
-      {({ open }) => (
-        <>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex h-16 justify-between">
-              <div className="flex">
-                <div className="flex flex-shrink-0 items-center">
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    className="text-gray-100"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect
-                      width="100%"
-                      height="100%"
-                      rx="16"
-                      fill="currentColor"
-                    />
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
-                      fill="black"
-                    />
-                  </svg>
-                </div>
-                <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className={classNames(
-                        pathname === item.href
-                          ? 'border-slate-500 text-gray-900'
-                          : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
-                        'inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium'
-                      )}
-                      aria-current={pathname === item.href ? 'page' : undefined}
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-              <div className="hidden sm:ml-6 sm:flex sm:items-center">
-                <Menu as="div" className="relative ml-3">
-                  <div>
-                    <Menu.Button className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2">
-                      <span className="sr-only">Open user menu</span>
-                      <Image
-                        className="h-8 w-8 rounded-full"
-                        src={user?.image || 'https://avatar.vercel.sh/leerob'}
-                        height={32}
-                        width={32}
-                        alt={`${user?.name || 'placeholder'} avatar`}
-                      />
-                    </Menu.Button>
-                  </div>
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-200"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      {user ? (
-                        <Menu.Item>
-                          {({ active }) => (
-                            <button
-                              className={classNames(
-                                active ? 'bg-gray-100' : '',
-                                'flex w-full px-4 py-2 text-sm text-gray-700'
-                              )}
-                              onClick={() => signOut()}
-                            >
-                              Sign out
-                            </button>
-                          )}
-                        </Menu.Item>
-                      ) : (
-                        <Menu.Item>
-                          {({ active }) => (
-                            <button
-                              className={classNames(
-                                active ? 'bg-gray-100' : '',
-                                'flex w-full px-4 py-2 text-sm text-gray-700'
-                              )}
-                              onClick={() => signIn('github')}
-                            >
-                              Sign in
-                            </button>
-                          )}
-                        </Menu.Item>
-                      )}
-                    </Menu.Items>
-                  </Transition>
-                </Menu>
-              </div>
-              <div className="-mr-2 flex items-center sm:hidden">
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2">
-                  <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                  )}
-                </Disclosure.Button>
-              </div>
-            </div>
-          </div>
-
-          <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 pt-2 pb-3">
-              {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    pathname === item.href
-                      ? 'bg-slate-50 border-slate-500 text-slate-700'
-                      : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800',
-                    'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
-                  )}
-                  aria-current={pathname === item.href ? 'page' : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
-              ))}
-            </div>
-            <div className="border-t border-gray-200 pt-4 pb-3">
-              {user ? (
-                <>
-                  <div className="flex items-center px-4">
-                    <div className="flex-shrink-0">
-                      <Image
-                        className="h-8 w-8 rounded-full"
-                        src={user.image}
-                        height={32}
-                        width={32}
-                        alt={`${user.name} avatar`}
-                      />
-                    </div>
-                    <div className="ml-3">
-                      <div className="text-base font-medium text-gray-800">
-                        {user.name}
-                      </div>
-                      <div className="text-sm font-medium text-gray-500">
-                        {user.email}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mt-3 space-y-1">
-                    <button
-                      onClick={() => signOut()}
-                      className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                    >
-                      Sign out
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <div className="mt-3 space-y-1">
-                  <button
-                    onClick={() => signIn('github')}
-                    className="flex w-full px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                  >
-                    Sign in
-                  </button>
-                </div>
-              )}
-            </div>
-          </Disclosure.Panel>
-        </>
-      )}
-    </Disclosure>
-  );
-}
+export default NavBar

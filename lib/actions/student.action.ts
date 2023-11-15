@@ -1,22 +1,88 @@
-'use server';
+"use server";
+import getErrorMessage from "@/utils/error";
+import { prisma } from "../prisma";
+import { returnType, studentDataType } from "@/utils/types";
+import { revalidatePath } from "next/cache";
 
-import { prisma } from '../app/db';
+export async function addStudentDatas(
+	parsedDataResult: studentDataType[]
+): Promise<returnType> {
+	try {
+		const studentDatas = [];
+		for (const data of parsedDataResult) {
+			const studentData = await prisma.studentData.upsert({
+				where: {
+					student_email: data.student_email,
+				},
+				update: {
+					...data,
+					updatedAt: new Date(),
+					total_completions:
+						data.of_courses_completed +
+						data.of_skill_badges_completed +
+						data.of_gen_ai_game_completed,
+				},
+				create: {
+					...data,
+					total_completions:
+						data.of_courses_completed +
+						data.of_skill_badges_completed +
+						data.of_gen_ai_game_completed,
+				},
+			});
+			studentDatas.push(studentData);
+		}
+		return {
+			error: false,
+			msg: "success",
+		};
+	} catch (error: any) {
+		console.error("Error parsing data:", error);
+		return {
+			error: true,
+			msg: getErrorMessage(error),
+		};
+	}
+}
 
-export const handleSubmit = async (e: FormData) => {
-  const file = e.get('excel-file') as File;
+export async function fetchStudentData(): Promise<returnType> {
+	try {
+		const studentData = await prisma.studentData.findMany({
+			orderBy: [
+				{ total_completions: "desc" },
+				{
+					updatedAt: "asc",
+				},
+			],
+		});
+		revalidatePath("/");
+		return {
+			error: false,
+			msg: "success",
+			data: studentData,
+		};
+	} catch (error) {
+		console.error("Error fetching data:", error);
+		return {
+			error: true,
+			msg: getErrorMessage(error),
+		};
+	}
+}
 
-  if (!file) {
-    console.log('No file selected.');
-    return;
-  }
-
-  console.log(file);
-
-  try {
-    // const parsedDataResult = await parsedData(file);
-    // console.log(parsedDataResult);
-    // await prisma.studentData.createMany({ data: parsedDataResult, skipDuplicates: true, })
-  } catch (error) {
-    console.error('Error parsing data:', error);
-  }
-};
+export async function deleteStudentData(): Promise<returnType> {
+	try {
+		const studentData = await prisma.studentData.deleteMany({});
+		return {
+			error: false,
+			msg: "success",
+			data: studentData,
+		};
+	} catch (error) {
+		console.error("Error fetching data:", error);
+		return {
+			error: true,
+			msg: getErrorMessage(error),
+		};
+	}
+}
