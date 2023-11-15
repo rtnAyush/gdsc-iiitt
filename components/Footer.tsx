@@ -17,11 +17,9 @@ export default function Footer() {
                 <span className='cursor-pointer hover:scale-110'> Ayush </span>
             </div>
             <div className='flex justify-center'>
-                <img src="https://drive.google.com/file/d/1rWWtN7m5AvtMGu0e0PBCi_8ZfS3x8ELR/view?usp=drive_link" alt="" />
                 <div className='flex gap-2'>
-                    {/* <Link to='https://rtn-ayush-kumar.netlify.app/'><FaUserTie className='hover:scale-125' /></Link> */}
-                    <Link href='https://github.com/Ayush211107'><FaGithub className='hover:scale-125' /></Link>
-                    <Link href='https://www.linkedin.com/in/rtn-ayush-kumar/'><FaLinkedinIn className='hover:scale-125' /></Link>
+                    <Link href='https://github.com/rtnAyush'><FaGithub className='hover:scale-125' /></Link>
+                    <Link href='https://www.linkedin.com/in/rtnAyush'><FaLinkedinIn className='hover:scale-125' /></Link>
                 </div>
             </div>
         </footer>
