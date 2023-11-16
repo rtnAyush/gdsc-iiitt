@@ -4,6 +4,7 @@ import { addStudentDatas, fetchStudentData } from '@/lib/actions/student.action'
 import parsedData from '@/controllers/studentdata.controller';
 import toast from 'react-hot-toast';
 import DeleteModal from './DeleteModal';
+import Link from 'next/link';
 
 export default function Admin() {
     const [loading, setLodaing] = useState(false);
@@ -56,6 +57,9 @@ export default function Admin() {
     return (
         <main className="p-4 md:p-10 mx-auto max-w-7xl h-80 flex flex-col justify-center">
             <DeleteModal setShow={setShow} show={show} />
+            <div className='flex justify-end m-3'>
+                <Link href='/api/auth/signout' className='border bg-gray-600 text-white rounded-md p-2 cursor-pointer hover:bg-gray-500'>SignOut</Link>
+            </div>
             <div className='flex justify-end m-3'>
                 <button onClick={() => setShow(true)} className='border bg-red-600 text-white rounded-md p-2 cursor-pointer hover:bg-red-500'>Delete All Data</button>
             </div>
