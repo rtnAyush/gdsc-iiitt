@@ -1,4 +1,4 @@
-import TableIndex from "@/components/TableIndex";
+import TableIndex from "@/components/leaderBoard/TableIndex";
 import { fetchStudentData } from "@/lib/actions/student.action";
 
 
