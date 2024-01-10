@@ -2,16 +2,15 @@
 import { useState } from 'react';
 import { addStudentDatas, fetchStudentData } from '@/lib/actions/student.action';
 import parsedData from '@/controllers/studentdata.controller';
+import toast from 'react-hot-toast';
+import DeleteModal from './DeleteModal';
+import Link from 'next/link';
 
 export default function Admin() {
     const [loading, setLodaing] = useState(false);
+    const [show, setShow] = useState(false);
 
-
-
-    async function handleSubmit(e: any) {
-        e.preventDefault();
-        const formElement = e.currentTarget;
-        const formData = new FormData(formElement);
+    async function handleSubmit(formData: FormData) {
 
         const file = formData.get('excel-file');
 
@@ -25,16 +24,29 @@ export default function Admin() {
             const exsitingdata = await fetchStudentData();
             const parsedDataResult = await parsedData({ file: file as Blob, existingData: exsitingdata?.data || [] });
             if (parsedDataResult?.error) {
-                alert(parsedDataResult.msg);
+                toast.error(parsedDataResult.msg);
                 return;
             }
-            const res = await addStudentDatas(parsedDataResult.data);
-            if (res?.error) {
-                alert(res.msg);
-                return;
-            }
+            const res = addStudentDatas(parsedDataResult.data);
+            toast.promise(
+                res,
+                {
+                    loading: 'Loading',
+                    success: "Successfully saved",
+                    error: "something went wrong",
+                },
+                {
+                    style: {
+                        minWidth: '250px',
+                    },
+                    success: {
+                        duration: 5000,
+                        icon: '🔥',
+                    },
+                }
+            );
         } catch (error: any) {
-            console.error("Error parsing data:", error);
+            toast.error("Error parsing data:", error);
         } finally {
             setLodaing(false);
         }
@@ -44,7 +56,14 @@ export default function Admin() {
 
     return (
         <main className="p-4 md:p-10 mx-auto max-w-7xl h-80 flex flex-col justify-center">
-            <form onSubmit={handleSubmit} className="grid gap-4">
+            <DeleteModal setShow={setShow} show={show} />
+            <div className='flex justify-end m-3'>
+                <Link href='/api/auth/signout' className='border bg-gray-600 text-white rounded-md p-2 cursor-pointer hover:bg-gray-500'>SignOut</Link>
+            </div>
+            <div className='flex justify-end m-3'>
+                <button onClick={() => setShow(true)} className='border bg-red-600 text-white rounded-md p-2 cursor-pointer hover:bg-red-500'>Delete All Data</button>
+            </div>
+            <form action={handleSubmit} className="grid gap-4">
                 <input type="file" required name="excel-file" accept=".xlsx" className='border rounded-md p-4' />
                 {
                     loading ?
