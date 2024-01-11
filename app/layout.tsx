@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 import NavBar from '@/components/NavBar'
 import { Toaster } from 'react-hot-toast'
 
-const poppins = Poppins({ subsets: ["latin"], weight: ["100", "400", "700"] })
+const poppins = Poppins({ subsets: ["latin"], weight: ["100", "300", "400", "500", "600", "700"] })
 
 export const metadata: Metadata = {
   title: 'IIIT-T GDSC JAMS',
