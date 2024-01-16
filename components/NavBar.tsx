@@ -40,7 +40,7 @@ export default function NavBar() {
         </Link>
         <div className="flex justify-center items-center space-x-1 sm:space-x-5">
           <Link href="/">Home</Link>
-          <Link href="/">Events</Link>
+          <Link href="/events">Events</Link>
           <Link href="/">Teams</Link>
           <Link href="/">Archives</Link>
           <Button variant="default">Join Club</Button>

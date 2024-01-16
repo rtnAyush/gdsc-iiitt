@@ -67,14 +67,20 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        levitate: {
-          "0%": { transform: "transform(0,0px)" },
-          "50%": { transform: "transform(0,15px)" },
+        floatY: {
+          "0%": { transform: "translate(0,0px)" },
+          "50%": { transform: "translate(0,5px)" },
           "100%": { transform: "translate(0, -0px)" },
         },
+        floatX: {
+          "0%": { transform: "translate(0, 0px)" },
+          "50%": { transform: "translate(10px, 0px)" },
+          "100%": { transform: "translate(0, 0px)" },
+        },        
       },
       animation: {
-        levitate: "levitate 0.2s ease-in-out infinite",
+        floatY: "floatY 2s ease-in-out infinite",
+        floatX: "floatX 3s ease-in-out infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
