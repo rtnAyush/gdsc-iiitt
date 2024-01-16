@@ -2,6 +2,71 @@ import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import EventsCards from "@/components/EventsCards";
 import Carousel from "@/components/Carousel";
 
+const events = [
+  {
+    title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, voluptates.",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident sit recusandae dolores aperiam laborum maiores modi natus quod, ipsum nam.",
+    imgUrl: "/assets/jhon-card.jpg",
+    date: "12/12/2021",
+    time: "12:00 PM",
+    location: "Online",
+    tags: "#Lorem ipsum dolor sit amet.",
+  },
+  {
+    title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, voluptates.",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident sit recusandae dolores aperiam laborum maiores modi natus quod, ipsum nam.",
+    imgUrl: "/assets/jhon-card.jpg",
+    date: "12/12/2021",
+    time: "12:00 PM",
+    location: "Online",
+    tags: "#Lorem ipsum dolor sit amet.",
+  },
+  {
+    title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, voluptates.",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident sit recusandae dolores aperiam laborum maiores modi natus quod, ipsum nam.",
+    imgUrl: "/assets/jhon-card.jpg",
+    date: "12/12/2021",
+    time: "12:00 PM",
+    location: "Online",
+    tags: "#Lorem ipsum dolor sit amet.",
+  },
+  {
+    title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, voluptates.",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident sit recusandae dolores aperiam laborum maiores modi natus quod, ipsum nam.",
+    imgUrl: "/assets/jhon-card.jpg",
+    date: "12/12/2021",
+    time: "12:00 PM",
+    location: "Online",
+    tags: "#Lorem ipsum dolor sit amet.",
+  },
+  {
+    title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, voluptates.",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident sit recusandae dolores aperiam laborum maiores modi natus quod, ipsum nam.",
+    imgUrl: "/assets/jhon-card.jpg",
+    date: "12/12/2021",
+    time: "12:00 PM",
+    location: "Online",
+    tags: "#Lorem ipsum dolor sit amet.",
+  },
+  {
+    title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, voluptates.",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident sit recusandae dolores aperiam laborum maiores modi natus quod, ipsum nam.",
+    imgUrl: "/assets/jhon-card.jpg",
+    date: "12/12/2021",
+    time: "12:00 PM",
+    location: "Online",
+    tags: "#Lorem ipsum dolor sit amet.",
+  },
+  {
+    title: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, voluptates.",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident sit recusandae dolores aperiam laborum maiores modi natus quod, ipsum nam.",
+    imgUrl: "/assets/jhon-card.jpg",
+    date: "12/12/2021",
+    time: "12:00 PM",
+    location: "Online",
+    tags: "#Lorem ipsum dolor sit amet.",
+  },
+]
 
 export default async function Page() {
 
@@ -33,25 +98,67 @@ export default async function Page() {
       </MaxWidthWrapper>
 
       <MaxWidthWrapper className="">
-        
+
         <section className="">
           <div className="max-w-6xl m-auto py-10 px-3">
             <h2 className="text-2xl">Upcoming events</h2>
-            <EventsCards events={1} />
+            <div className="grid gap-x-4 gap-y-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6">
+              {
+                events.map((event, idx) => (
+                  <EventsCards
+                    key={idx}
+                    title={event.title}
+                    date={event.date}
+                    time={event.time}
+                    desciption={event.description}
+                    tags={event.tags}
+                    imgUrl={event.imgUrl}
+                  />
+                ))
+              }
+            </div>
           </div>
         </section>
-        
+
         <section className="">
           <div className="max-w-6xl m-auto py-10 px-3">
             <h2 className="text-2xl">Recent events</h2>
-            <EventsCards events={1} />
+            <div className="grid gap-x-4 gap-y-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6">
+              {
+                events.map((event, idx) => (
+                  <EventsCards
+                    key={idx}
+                    title={event.title}
+                    date={event.date}
+                    time={event.time}
+                    desciption={event.description}
+                    tags={event.tags}
+                    imgUrl={event.imgUrl}
+                  />
+                ))
+              }
+            </div>
           </div>
         </section>
 
         <section className="bg-gray-200">
           <div className="max-w-6xl m-auto py-10 px-3">
             <h2 className="text-2xl">Past events</h2>
-            <EventsCards events={1} />
+            <div className="grid gap-x-4 gap-y-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6">
+              {
+                events.map((event, idx) => (
+                  <EventsCards
+                    key={idx}
+                    title={event.title}
+                    date={event.date}
+                    time={event.time}
+                    desciption={event.description}
+                    tags={event.tags}
+                    imgUrl={event.imgUrl}
+                  />
+                ))
+              }
+            </div>
           </div>
         </section>
 
