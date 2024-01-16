@@ -8,10 +8,10 @@ import Link from "next/link";
 export default async function Page() {
   return (
     <>
-      <MaxWidthWrapper className="relative z-[-10]">
+      <MaxWidthWrapper className="bg-gray-100 relative z-[-10]">
         <section className="pt-20 pb-10 flex flex-col items-center gap-16 max-w-6xl m-auto px-3 lg:gap-0 lg:flex-row ">
-          <div className="absolute top-0 left-[-18px] w-40 h-40 bg-red-400 rounded-br-full animate-floatX"></div>
-          <div className="absolute top-20 right-0 w-28 h-56 bg-yellow-200 rounded-tl-full rounded-bl-full animate-floatX"></div>
+          <div className="absolute z-[-2] top-0 left-[-18px] w-40 h-40 bg-red-400 rounded-br-full animate-floatX"></div>
+          <div className="absolute z-[-2] top-20 right-0 w-28 h-56 bg-yellow-200 rounded-tl-full rounded-bl-full animate-floatX"></div>
           <Link
             className="absolute md:top-10 flex justify-center items-center gap-4 py-1 px-3 rounded-md bg-gradient-to-r from-green-500 to-green-300"
             href="/"
