@@ -1,13 +1,13 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -67,14 +67,26 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        floatY: {
+          "0%": { transform: "translate(0,0px)" },
+          "50%": { transform: "translate(0,5px)" },
+          "100%": { transform: "translate(0, -0px)" },
+        },
+        floatX: {
+          "0%": { transform: "translate(0, 0px)" },
+          "50%": { transform: "translate(10px, 0px)" },
+          "100%": { transform: "translate(0, 0px)" },
+        },        
       },
       animation: {
+        floatY: "floatY 2s ease-in-out infinite",
+        floatX: "floatX 3s ease-in-out infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;
