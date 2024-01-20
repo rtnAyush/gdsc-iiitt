@@ -7,7 +7,7 @@ export default async function Page() {
 
   if (res?.error) {
     console.log(res.msg);
-    return;
+    return "something went wrong";
   }
 
   return (

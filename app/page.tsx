@@ -33,20 +33,22 @@ export default async function Page() {
   ]
   const fieldCards = fields.map((field, index) => {
     return (
-      <FieldsCards h2={field.h2} img={field.img} para={field.para} key={index} className={index%2==0?'flex-row-reverse':''} />
+      <FieldsCards h2={field.h2} img={field.img} para={field.para} key={index} className={index % 2 == 0 ? 'flex-row-reverse' : ''} />
     )
   })
 
   return (
     <>
       <HeroSection />
+      <div>
+        <h1 className="text-5xl text-center my-20">What does GDSC-IIITT do?</h1>
+        <p>We at DSC-AKGEC are a passionate group of people who work towards bringing a change in the ecosystem of development around the campus. We want to create a healthy environment for the budding developers to exploring solutions to real life problems and promote the developer culture.</p>
+      </div>
       <h2 className="text-5xl text-center mt-6">Fields we work in</h2>
       <section className="bg-white [&>*:nth-child(even)]:bg-gray-200">
         {fieldCards}
       </section>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <Teams />
-      </main>
+  
     </>
   );
 }
