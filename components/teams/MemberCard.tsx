@@ -1,3 +1,5 @@
+"use client"
+
 import {
     Card,
     CardContent,
@@ -6,17 +8,33 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
-// const colors = ["#3DA3F4", "#F36E67", "#91CE93", "#FFD763"];
+
+const colors = ["#3DA3F4", "#F36E67", "#91CE93", "#FFD763"];
 const patterns = ["double-bubble-outline.png", "more-leaves.png", "moroccan-flower.png", "spikes.png"]
 
 export default function MemberCard({ idx, name, role, imageUrl, linkedinUrl, githubUrl }: { idx: number, name: string, role: string, imageUrl: string, linkedinUrl: string, githubUrl: string }) {
+    const [isHovered, setIsHovered] = useState(false);
+
     return (
-        <Card className="text-center shadow-xl border-0 rounded-lg w-[250px]">
+        <Card
+            onMouseEnter={(e) => {
+                e.currentTarget.style.background = colors[idx % 4];
+                setIsHovered(true);
+            }}
+            onMouseLeave={(e) => {
+                e.currentTarget.style.background = "";
+                setIsHovered(false);
+            }}
+            className="text-center border-0 rounded-lg w-[250px] hover:text-white transition-all duration-300 border-b-4"
+            style={{ boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px", borderColor: colors[idx % 4] }}
+        >
             <CardHeader
                 style={{
-                    background: `url('/patterns/${patterns[idx % 4]}')`,
-                    backgroundSize: 'cover'
+                    background: isHovered ? "" : `url('/patterns/${patterns[idx % 4]}')`,
+                    backgroundSize: 'cover',
+                    transition: "all 0.3s ease",
                 }}
                 className="p-0 relative flex justify-center items-center rounded-t-lg"
             >
@@ -25,14 +43,14 @@ export default function MemberCard({ idx, name, role, imageUrl, linkedinUrl, git
                     alt=""
                     width={200}
                     height={200}
-                    className="m-[25px] hover:m-0 border-4 shadow-lg hover:border-none border-white overflow-hidden object-cover hover:cursor-pointer transition-all rounded-full hover:rounded-none duration-300 hover:object-fill hover:w-[250px]"
+                    className={`m-[25px] border-4 shadow-lg border-white overflow-hidden object-cover transition-all rounded-full duration-300 ${isHovered ? "rounded-sm object-fill m-0 border-none w-[250px]" : ""}`}
                 />
             </CardHeader>
             <CardContent className="my-2 pb-0">
                 <h1 className="font-bold text-lg tracking-tighter">{name}</h1>
-                <p className="text-[#808080]">{role}</p>
+                <p className={`text-[#808080] ${isHovered ? "text-white" : ""}`}>{role}</p>
             </CardContent>
-            <CardFooter className="flex justify-center items-center gap-2 text-[#808080]">
+            <CardFooter className={`flex justify-center items-center gap-2 text-[#808080] ${isHovered ? "text-white" : ""}`}>
                 <Link href={linkedinUrl}>
                     <svg width="25" height="25" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 1C1.44772 1 1 1.44772 1 2V13C1 13.5523 1.44772 14 2 14H13C13.5523 14 14 13.5523 14 13V2C14 1.44772 13.5523 1 13 1H2ZM3.05 6H4.95V12H3.05V6ZM5.075 4.005C5.075 4.59871 4.59371 5.08 4 5.08C3.4063 5.08 2.925 4.59871 2.925 4.005C2.925 3.41129 3.4063 2.93 4 2.93C4.59371 2.93 5.075 3.41129 5.075 4.005ZM12 8.35713C12 6.55208 10.8334 5.85033 9.67449 5.85033C9.29502 5.83163 8.91721 5.91119 8.57874 6.08107C8.32172 6.21007 8.05265 6.50523 7.84516 7.01853H7.79179V6.00044H6V12.0047H7.90616V8.8112C7.8786 8.48413 7.98327 8.06142 8.19741 7.80987C8.41156 7.55832 8.71789 7.49825 8.95015 7.46774H9.02258C9.62874 7.46774 10.0786 7.84301 10.0786 8.78868V12.0047H11.9847L12 8.35713Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path></svg>
                 </Link>
