@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 
 export default function FieldsCards({ h2, img, para, className, isBtn }: { h2: string, img: string, para: string, className?: string, isBtn?: boolean }) {
@@ -20,7 +21,7 @@ export default function FieldsCards({ h2, img, para, className, isBtn }: { h2: s
         <div className="flex-1">
           <h2 className="text-4xl font-semibold text-center lg:text-left">{h2}</h2>
           <p className="mt-8 max-w-prose">{para}</p>
-          {isBtn && <Button variant="default" className="my-10">SEE MORE</Button>}
+          {isBtn && <Link href="/team"><Button variant="default" className="my-10">SEE MORE</Button></Link>}
         </div>
       </section >
     </div>

@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function HeroSection() {
     return (
-        <div className="bg-gray-100 relative z-[-10]" style={{ minHeight: "75vh" }}>
+        <div className="bg-gray-100 relative z-0" style={{ minHeight: "75vh" }}>
             <section className="pt-20 pb-10 flex flex-col items-center gap-16 max-w-6xl m-auto px-3 lg:gap-0 lg:flex-row ">
                 <div className="absolute z-[-2] top-0 left-[-18px] w-40 h-40 bg-red-400 rounded-br-full animate-floatX"
                     style={{
@@ -22,7 +22,7 @@ export default function HeroSection() {
                 />
                 <Link
                     className="absolute md:top-10 flex justify-center items-center gap-4 py-1 px-3 rounded-md bg-gradient-to-r from-green-500 to-green-300"
-                    href="/"
+                    href="/leaderboard"
                 >
                     <Image src="/assets/medal.svg" alt="medal" width="20" height="20" />{" "}
                     <h4 className="text-gray-800">See Leaderboard</h4>
@@ -81,15 +81,15 @@ export default function HeroSection() {
                                 </div>
                             </Link>
                         </div>
-                        <div className="flex max-w-xs mx-auto w-full lg:mx-0 lg:max-w-sm">
+                        {/* <div className="z-10 flex max-w-xs mx-auto w-full lg:mx-0 lg:max-w-sm">
                             <Input
-                                className="rounded-r-none active:outline-none"
+                                className="enter-email rounded-r-none"
                                 placeholder="Email address"
                             />
                             <Button variant="default" className="rounded-l-none">
                                 Join Club
                             </Button>
-                        </div>
+                        </div> */}
 
                     </div>
                 </section>
@@ -101,7 +101,7 @@ export default function HeroSection() {
                         height="350"
                     />
                 </section>
-                <div className="absolute bottom-0 right-0">
+                <div className="z-10 absolute bottom-0 right-0">
                     <svg
                         style={{
                             margin: "auto",
