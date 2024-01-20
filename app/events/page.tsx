@@ -74,7 +74,7 @@ export default async function Page() {
 
   return (
     <>
-      <MaxWidthWrapper className="bg-[url('/assets/background.png')] bg-cover relative">
+      <div className="bg-[url('/assets/background.png')] bg-cover relative">
         <section className="py-20 flex flex-col items-center relative gap-16 max-w-6xl m-auto px-3 lg:gap-16 lg:flex-row ">
           <div className="sm:w-full h-full lg:w-1/2">
             <section className="flex flex-col gap-4 mx-auto max-w-3xl min-h-full md:pt-0">
@@ -95,9 +95,9 @@ export default async function Page() {
           <Carousel />
 
         </section>
-      </MaxWidthWrapper>
+      </div>
 
-      <MaxWidthWrapper className="">
+      <div className="">
 
         <section className="">
           <div className="max-w-6xl m-auto py-10 px-3">
@@ -162,7 +162,7 @@ export default async function Page() {
           </div>
         </section>
 
-      </MaxWidthWrapper>
+      </div>
     </>
   );
 }
