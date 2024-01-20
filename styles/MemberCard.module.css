@@ -3,7 +3,7 @@
   transition: all .2s ease-in-out;
 }
 
-.circle:hover {
+.circlehover {
   border-radius:0;  
   cursor: pointer;
 }
