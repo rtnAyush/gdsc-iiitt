@@ -8,21 +8,11 @@ import {
 } from "@/components/ui/card"
 import { Button } from "./ui/button";
 import Image from "next/image";
-import john3 from "@/public/assets/johnwick4-section-promo-double-home-03.jpg"
 import Link from "next/link";
 
-export default function EventsCards({ title, date, time, desciption, tags, imgUrl }: { title: string, date: string, time: string, desciption: string, tags: string, imgUrl: string }) {
+export default function EventsCards({ title, date, time, desciption, tags, link, imgUrl }: { title: string, date: string, time: string, link?: string, desciption: string, tags: string, imgUrl: string }) {
     return (
-        <Card className="">
-            {/* <div className="w-full">
-                <Image
-                    src={imgUrl}
-                    alt="event_image"
-                    layout='fill'
-                    objectFit='contain'
-                    className="rounded-t-md"
-                />
-            </div> */}
+        <Card className="" style={{ boxShadow: "5px 5px 10px #cdcfcf, -5px -3px 5px #fff" }}>
             <CardHeader
                 className="p-0 relative flex justify-center items-center rounded-t-lg"
             >
@@ -36,17 +26,17 @@ export default function EventsCards({ title, date, time, desciption, tags, imgUr
                     className="overflow-hidden object-cover rounded-t-md"
                 />
             </CardHeader>
-            <CardHeader>
+            <CardHeader className="py-3">
                 <Link href="/events">
-                    <CardTitle className="text-blue-500 font-normal text-xl">{title}</CardTitle>
+                    <CardTitle className="text-blue-500 font-normal text-xl">{title.substring(0, 25)} {title.split("").length > 28 && "..."}</CardTitle>
                 </Link>
                 <CardDescription>{date} | {time}</CardDescription>
             </CardHeader>
             <CardContent>
-                <p>{desciption}</p>
+                <p className="leading-normal text-justify text-[14px]">{desciption.substring(0, 235)} {desciption.split("").length > 240 && "..."} {desciption.split("").length > 240 && <Link href={link || '#'}>Read More</Link>}</p>
             </CardContent>
             <CardFooter className="flex flex-col items-start gap-6">
-                <p>{tags}</p>
+                {/* <p>{tags}</p> */}
                 <Button variant="default">Register Now</Button>
             </CardFooter>
         </Card>

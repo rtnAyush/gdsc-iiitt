@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <div className="flex flex-col min-h-screen">
           <NavBar />
-          <Toaster position='top-right' />
+          {/* <Toaster position='top-right' /> */}
           <main className="flex-1 overflow-hidden">
             {children}
           </main>
