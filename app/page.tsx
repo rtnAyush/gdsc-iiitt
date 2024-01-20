@@ -2,7 +2,6 @@ import FieldsCards from "@/components/FieldsCards";
 import HeroSection from "@/components/HeroSection";
 import HomePageEvent from "@/components/HomePageEvent";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-// import Teams from "@/components/teams/Teams";
 
 
 export default async function Page() {
@@ -33,6 +32,7 @@ export default async function Page() {
       para: 'Web development is the work involved in developing a Web site for the Internet or an intranet. Web development can range from developing a simple single static page of plain text to complex Web-based Internet applications, electronic businesses, and social network services.'
     },
   ]
+
 
   return (
     <>

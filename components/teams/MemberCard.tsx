@@ -8,6 +8,8 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
+import styles from '../../styles/MemberCard.module.css'
+import { cn } from "@/lib/utils";
 import { useState } from "react";
 
 
@@ -43,7 +45,7 @@ export default function MemberCard({ idx, name, role, imageUrl, linkedinUrl, git
                     alt=""
                     width={200}
                     height={200}
-                    className={`m-[25px] border-4 shadow-lg border-white overflow-hidden object-cover transition-all rounded-full duration-300 ${isHovered ? "rounded-sm object-fill m-0 border-none w-[250px]" : ""}`}
+                    className={`${styles.circle} m-[25px] hover:m-0 border-4 shadow-lg hover:border-none border-white overflow-hidden object-cover hover:cursor-pointer hover:object-fill hover:w-[250px]`}
                 />
             </CardHeader>
             <CardContent className="my-2 pb-0">
