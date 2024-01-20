@@ -1,12 +1,12 @@
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
+import MaxWidthWrapper from "./MaxWidthWrapper";
 
 export default function HeroSection() {
     return (
-        <MaxWidthWrapper className="bg-gray-100 relative z-[-10]">
+        <div className="bg-gray-100 relative z-[-10]">
             <section className="pt-20 pb-10 flex flex-col items-center gap-16 max-w-6xl m-auto px-3 lg:gap-0 lg:flex-row ">
                 <div className="absolute z-[-2] top-0 left-[-18px] w-40 h-40 bg-red-400 rounded-br-full animate-floatX"></div>
                 <div className="absolute z-[-2] top-20 right-0 w-28 h-56 bg-yellow-200 rounded-tl-full rounded-bl-full animate-floatX"></div>
@@ -53,10 +53,11 @@ export default function HeroSection() {
                     <svg
                         style={{
                             margin: "auto",
-                            background: "rgba(NaN, NaN, NaN, 0)",
+                            background: "radial-gradient(circle at 30% 30 %,#ffff00,#774400)",
                             display: "block",
                             zIndex: "-1",
                             position: "relative",
+                            boxShadow: " rgba(0, 0, 0, 0.16) 0px 1px 4px"
                         }}
                         width="1939"
                         height="148"
@@ -137,7 +138,7 @@ export default function HeroSection() {
                         </g>
                     </svg>{" "}
                 </div>
-            </section>
-        </MaxWidthWrapper>
+            </section >
+        </div >
     )
 }

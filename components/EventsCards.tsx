@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/card"
 import { Button } from "./ui/button";
 import Image from "next/image";
-import john3 from "@/public/assets/johnwick4-section-promo-double-home-03.jpg"
 import Link from "next/link";
 
 export default function EventsCards({ title, date, time, desciption, tags, imgUrl }: { title: string, date: string, time: string, desciption: string, tags: string, imgUrl: string }) {
