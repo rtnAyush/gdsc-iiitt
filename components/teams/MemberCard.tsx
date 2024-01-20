@@ -6,6 +6,8 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
+import styles from '../../styles/MemberCard.module.css'
+import { cn } from "@/lib/utils";
 
 // const colors = ["#3DA3F4", "#F36E67", "#91CE93", "#FFD763"];
 const patterns = ["double-bubble-outline.png", "more-leaves.png", "moroccan-flower.png", "spikes.png"]
@@ -25,7 +27,7 @@ export default function MemberCard({ idx, name, role, imageUrl, linkedinUrl, git
                     alt=""
                     width={200}
                     height={200}
-                    className="m-[25px] hover:m-0 border-4 shadow-lg hover:border-none border-white overflow-hidden object-cover hover:cursor-pointer transition-all rounded-full hover:rounded-none duration-300 hover:object-fill hover:w-[250px]"
+                    className={`${styles.circle} m-[25px] hover:m-0 border-4 shadow-lg hover:border-none border-white overflow-hidden object-cover hover:cursor-pointer hover:object-fill hover:w-[250px]`}
                 />
             </CardHeader>
             <CardContent className="my-2 pb-0">
