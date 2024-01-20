@@ -11,7 +11,7 @@ export default function page() {
                 </section>
 
                 <div className="items-center justify-between px-24 my-10">
-                    <p className="font-[500]">"a great community is built by great students."</p>
+                    <p className="font-[500]">&quot; a great community is built by great students.&quot;</p>
                     <p className="text-2xl text-[#808080] font-[400] my-4">
                         meet our teams of <i className="text-3xl text-black font-[500]">leaders, designers, developers, problem solvers</i> and many
                         more.
@@ -49,6 +49,7 @@ export default function page() {
                             leads.map((member, idx) => (
                                 <MemberCard
                                     idx={idx}
+                                    key={idx}
                                     name={member.name}
                                     role={member.role}
                                     imageUrl={member.imageUrl}
@@ -70,6 +71,7 @@ export default function page() {
                             members.map((member, idx) => (
                                 <MemberCard
                                     idx={idx}
+                                    key={idx}
                                     name={member.name}
                                     role={member.role}
                                     imageUrl={member.imageUrl}
