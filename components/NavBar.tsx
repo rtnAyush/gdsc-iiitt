@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./ui/button";
+import NavMenu from "./NavMenu";
 
 
 export default function NavBar() {
@@ -39,14 +40,14 @@ export default function NavBar() {
             </p>
           </div>
         </Link>
-        <div className="flex justify-center items-center space-x-1 sm:space-x-5">
+        <div className="hidden lg:flex justify-center items-center space-x-1 sm:space-x-5">
           <Link href="/">Home</Link>
           <Link href="/events">Events</Link>
           <Link href="/team">Teams</Link>
           <Link href="/leaderboard">LeaderBoard</Link>
           <Button variant="default">Join Club</Button>
         </div>
-
+        <NavMenu className="lg:hidden"/>
       </div>
     </nav >
   );
