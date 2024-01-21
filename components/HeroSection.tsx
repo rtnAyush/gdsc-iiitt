@@ -40,7 +40,7 @@ export default function HeroSection() {
                         <p className="text-[16px] font-normal text-gray-700 text-center lg:text-left">
                             Join us on this journey of growth
                         </p>
-                        <div className="flex justify-start items-center space-x-1 sm:space-x-5 mb-2">
+                        <div className="flex justify-center items-center space-x-1 lg:justify-start sm:space-x-5 mb-2">
                             <Link href="https://www.linkedin.com/company/gdsc-iiitt/">
                                 <div className="cursor-pointer linkedin">
                                     <svg
@@ -101,7 +101,7 @@ export default function HeroSection() {
                         height="350"
                     />
                 </section>
-                <div className="z-10 absolute bottom-0 right-0">
+                <div className="z-[-1] absolute bottom-0 right-0">
                     <svg
                         style={{
                             margin: "auto",
