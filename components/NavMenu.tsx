@@ -24,22 +24,30 @@ export default function NavMenu({ className }: { className?: any }) {
                             <SheetTitle className="pl-3 text-2xl text-left">Menu</SheetTitle>
                         </SheetHeader>
                         <div className="py-4 flex flex-col">
-                            <Link href="/" className="flex items-center p-3 text-xl hover:bg-slate-200">
-                                <FaHome className="inline-block mr-2" size={20} />
-                                Home
-                            </Link>
-                            <Link href="/events" className="flex items-center p-3 text-xl hover:bg-slate-200">
-                                <FaCalendarAlt className="inline-block mr-2" size={20} />
-                                Events
-                            </Link>
-                            <Link href="/team" className="flex items-center p-3 text-xl hover:bg-slate-200">
-                                <RiTeamFill className="inline-block mr-2" size={20} />
-                                Teams
-                            </Link>
-                            <Link href="/leaderboard" className="flex items-center p-3 text-xl hover:bg-slate-200">
-                                <MdLeaderboard className="inline-block mr-2" size={20} />
-                                Leaderboard
-                            </Link>
+                            <SheetTrigger asChild>
+                                <Link href="/" className="flex items-center p-3 text-xl hover:bg-slate-200">
+                                    <FaHome className="inline-block mr-2" size={20} />
+                                    Home
+                                </Link>
+                            </SheetTrigger>
+                            <SheetTrigger asChild>
+                                <Link href="/events" className="flex items-center p-3 text-xl hover:bg-slate-200">
+                                    <FaCalendarAlt className="inline-block mr-2" size={20} />
+                                    Events
+                                </Link>
+                            </SheetTrigger>
+                            <SheetTrigger asChild>
+                                <Link href="/team" className="flex items-center p-3 text-xl hover:bg-slate-200">
+                                    <RiTeamFill className="inline-block mr-2" size={20} />
+                                    Teams
+                                </Link>
+                            </SheetTrigger>
+                            <SheetTrigger asChild>
+                                <Link href="/leaderboard" className="flex items-center p-3 text-xl hover:bg-slate-200">
+                                    <MdLeaderboard className="inline-block mr-2" size={20} />
+                                    Leaderboard
+                                </Link>
+                            </SheetTrigger>
                             <Link href="/" className={`${buttonVariants({ variant: "default" })} w-28 m-4`}>Join Club</Link>
                         </div>
                     </SheetContent>

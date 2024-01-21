@@ -6,13 +6,13 @@ export default function HeroSection() {
     return (
         <div className="bg-gray-100 relative z-0" style={{ minHeight: "75vh" }}>
             <section className="pt-20 pb-10 flex flex-col items-center gap-16 max-w-6xl m-auto px-3 lg:gap-0 lg:flex-row ">
-                <div className="absolute z-[-2] top-0 left-[-18px] w-40 h-40 bg-red-400 rounded-br-full animate-floatX"
+                <div className="absolute z-[-2] top-0 left-[-18px] w-40 h-40 bg-red-500 rounded-br-full animate-floatX"
                     style={{
                         background: "radial-gradient(circle at 30% 30 %,#ffff00,#774400)",
                         boxShadow: " rgba(0, 0, 0, 0.16) 0px 1px 1px"
                     }}
                 />
-                <div className="absolute z-[-2] top-20 right-0 w-28 h-56 bg-yellow-200 rounded-tl-full rounded-bl-full animate-floatX"
+                <div className="absolute z-[-2] top-20 right-0 w-28 h-56 bg-[#EEB211] rounded-tl-full rounded-bl-full animate-floatX"
                     style={{
                         background: "radial-gradient(circle at 30% 30 %,#ffff00,#774400)",
                         boxShadow: " rgba(0, 0, 0, 0.16) 0px 1px 1px"

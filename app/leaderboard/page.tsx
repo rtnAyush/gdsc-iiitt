@@ -11,7 +11,7 @@ export default async function Page() {
     }
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <main className="flex min-h-screen flex-col items-center justify-between sm:py-24 py-3 sm:px-24 px-3">
             <TableIndex participationData={res?.data} />
         </main>
     )

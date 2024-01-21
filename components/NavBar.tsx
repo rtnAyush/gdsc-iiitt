@@ -6,8 +6,8 @@ import NavMenu from "./NavMenu";
 
 export default function NavBar() {
     return (
-        <nav className="w-full  shadow-md relative ">
-            <div className="bg-gray-900 text-blue-500 w-full m-auto text-center p-2 flex justify-center items-center">
+        <nav className="w-full shadow-md relative ">
+            {/* <div className="bg-gray-900 text-blue-500 w-full m-auto text-center p-2 flex justify-center items-center">
                 <div className="">
                     <Image
                         src="/assets/cloudLg.png"
@@ -17,9 +17,9 @@ export default function NavBar() {
                     />
                 </div>
                 <p className="">Google Cloud STUDY JAMS 23 - 24</p>
-            </div>
+            </div> */}
 
-            <div className="py-3 px-10 flex mob:flex-col m-auto justify-between items-center">
+            <div className="py-3 sm:px-10 px-3 flex mob:flex-col m-auto justify-between items-center">
                 <Link
                     href={"/"}
                     className="logo mob:border-b mob:border-b-gray-200 flex justify-center items-center"
