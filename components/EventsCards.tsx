@@ -10,7 +10,7 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function EventsCards({ title, date, time, desciption, tags, link, imgUrl }: { title: string, date: string, time: string, link?: string, desciption: string, tags: string, imgUrl: string }) {
+export default function EventsCards({ title, date, time, desciption, link, imgUrl }: { title: string, date: string, time: string, link?: string, desciption: string, tags?: string, imgUrl: string }) {
     return (
         <Card className="" style={{ boxShadow: "5px 5px 10px #cdcfcf, -5px -3px 5px #fff" }}>
             <CardHeader
