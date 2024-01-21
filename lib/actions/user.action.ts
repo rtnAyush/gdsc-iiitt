@@ -13,34 +13,34 @@ interface addUserParams {
 }
 
 export async function addUser({
-	username,
-	name,
-	email,
-	password,
-	role,
+    username,
+    name,
+    email,
+    password,
+    role,
 }: addUserParams): Promise<any> {
-	try {
-		await prisma.user.create({
-			data: {
-				username,
-				name,
-				email,
-				password,
-				role,
-				createdAt: new Date(),
-			},
-		});
-		revalidatePath("/(root)/users", "page");
-		return JSON.stringify({
-			error: false,
-			msg: "success",
-		});
-	} catch (e: any) {
-		return JSON.stringify({
-			error: true,
-			msg: e.message,
-		});
-	}
+    try {
+        await prisma.user.create({
+            data: {
+                username,
+                name,
+                email,
+                password,
+                role,
+                createdAt: new Date(),
+            },
+        });
+        revalidatePath("/(root)/users", "page");
+        return JSON.stringify({
+            error: false,
+            msg: "success",
+        });
+    } catch (e: any) {
+        return JSON.stringify({
+            error: true,
+            msg: e.message,
+        });
+    }
 }
 
 interface updateUserParams {
@@ -51,52 +51,52 @@ interface updateUserParams {
 }
 
 export async function updateUser({
-	id,
-	username,
-	email,
-	role,
+    id,
+    username,
+    email,
+    role,
 }: updateUserParams): Promise<any> {
-	try {
-		await prisma.user.update({
-			where: {
-				id: id,
-			},
-			data: {
-				username,
-				email,
-				role: role as Role,
-			},
-		});
+    try {
+        await prisma.user.update({
+            where: {
+                id: id,
+            },
+            data: {
+                username,
+                email,
+                role: role as Role,
+            },
+        });
 
-		revalidatePath("/(root)/users", "page");
+        revalidatePath("/(root)/users", "page");
 
-		return JSON.stringify({
-			error: false,
-			msg: "success",
-		});
-	} catch (e: any) {
-		return JSON.stringify({
-			error: true,
-			msg: e.message,
-		});
-	}
+        return JSON.stringify({
+            error: false,
+            msg: "success",
+        });
+    } catch (e: any) {
+        return JSON.stringify({
+            error: true,
+            msg: e.message,
+        });
+    }
 }
 
 export async function fetchUser({ userId }: { userId: string }) {
-	try {
-		const foundUser = await prisma.user.findUnique({
-			where: {
-				id: userId,
-			},
-		});
+    try {
+        const foundUser = await prisma.user.findUnique({
+            where: {
+                id: userId,
+            },
+        });
 
-		revalidatePath("/(root)/users", "page");
+        revalidatePath("/(root)/users", "page");
 
-		return JSON.parse(JSON.stringify(foundUser));
-	} catch (e: any) {
-		return JSON.stringify({
-			error: true,
-			msg: e.message,
-		});
-	}
+        return JSON.parse(JSON.stringify(foundUser));
+    } catch (e: any) {
+        return JSON.stringify({
+            error: true,
+            msg: e.message,
+        });
+    }
 }

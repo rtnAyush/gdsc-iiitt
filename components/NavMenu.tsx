@@ -1,20 +1,19 @@
 import {
     Sheet,
     SheetContent,
-    SheetDescription,
     SheetHeader,
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
 import { RxHamburgerMenu } from "react-icons/rx"
-import { FaHome,FaCalendarAlt } from "react-icons/fa";
+import { FaHome, FaCalendarAlt } from "react-icons/fa";
 import { RiTeamFill } from "react-icons/ri";
 import { MdLeaderboard } from "react-icons/md";
 import Link from "next/link"
 import { buttonVariants } from "@/components/ui/button"
 
-export default function NavMenu({ className }) {
+export default function NavMenu({ className }: { className?: any }) {
     {
         return (
             <div className={cn(className)}>
