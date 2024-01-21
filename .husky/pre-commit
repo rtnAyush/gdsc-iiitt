@@ -1,4 +1,8 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+echo "Running pre-commit hook for linting and formatting..."
 npm run pre-commit
+
+echo "building..., for checking depolyment errors..."
+npm run build
