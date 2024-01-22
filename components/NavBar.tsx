@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "./ui/button";
+import { buttonVariants } from "./ui/button";
 import NavMenu from "./NavMenu";
-
 
 export default function NavBar() {
     return (
@@ -45,7 +44,7 @@ export default function NavBar() {
                     <Link href="/events">Events</Link>
                     <Link href="/team">Teams</Link>
                     <Link href="/leaderboard">LeaderBoard</Link>
-                    <Button variant="default">Join Club</Button>
+                    <Link href="/admin" className={buttonVariants({variant:"secondary"})}>Admin</Link>
                 </div>
                 <NavMenu className="lg:hidden"/>
             </div>

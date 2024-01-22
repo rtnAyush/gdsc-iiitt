@@ -4,10 +4,11 @@ import { addStudentDatas, fetchStudentData } from '@/lib/actions/student.action'
 import parsedData from '@/controllers/studentdata.controller';
 import toast from 'react-hot-toast';
 import DeleteModal from './DeleteModal';
-import Link from 'next/link';
+import { Button } from './ui/button';
+import { logout } from '@/lib/actions/auth.action';
 
 export default function Admin() {
-    const [loading, setLodaing] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [show, setShow] = useState(false);
 
     async function handleSubmit(formData: FormData) {
@@ -20,7 +21,7 @@ export default function Admin() {
         }
 
         try {
-            setLodaing(true);
+            setLoading(true);
             const exsitingdata = await fetchStudentData();
             const parsedDataResult = await parsedData({ file: file as Blob, existingData: exsitingdata?.data || [] });
             if (parsedDataResult?.error) {
@@ -48,7 +49,7 @@ export default function Admin() {
         } catch (error: any) {
             toast.error("Error parsing data:", error);
         } finally {
-            setLodaing(false);
+            setLoading(false);
         }
 
 
@@ -58,7 +59,16 @@ export default function Admin() {
         <main className="p-4 md:p-10 mx-auto max-w-7xl h-80 flex flex-col justify-center">
             <DeleteModal setShow={setShow} show={show} />
             <div className='flex justify-end m-3'>
-                <Link href='/api/auth/signout' className='border bg-gray-600 text-white rounded-md p-2 cursor-pointer hover:bg-gray-500'>SignOut</Link>
+                <Button
+                    onClick={
+                        async () => {
+                            await logout();
+                        }
+                    }
+                    className='border bg-gray-600 text-white rounded-md p-2 cursor-pointer hover:bg-gray-500'
+                >
+                    SignOut
+                </Button>
             </div>
             <div className='flex justify-end m-3'>
                 <button onClick={() => setShow(true)} className='border bg-red-600 text-white rounded-md p-2 cursor-pointer hover:bg-red-500'>Delete All Data</button>
