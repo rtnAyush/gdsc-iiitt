@@ -7,10 +7,10 @@ export default function page() {
         <>
             <main className="flex min-h-screen flex-col">
                 <section className="text-center py-10" style={{ backgroundImage: "url('/patterns/double-bubble-outline.png')" }}>
-                    <span className="text-3xl font-normal text-center bg-yellow-300 px-10 rounded-sm text-white">Teams</span>
+                    <span className="text-3xl font-normal text-center bg-blue-500 px-10 rounded-sm text-white">Teams</span>
                 </section>
 
-                <div className="items-center justify-between px-24 my-10">
+                <div className="items-center justify-between sm:px-24 px-3 my-10">
                     <p className="font-[500]">&quot; a great community is built by great students.&quot;</p>
                     <p className="text-2xl text-[#808080] font-[400] my-4">
                         meet our teams of <i className="text-3xl text-black font-[500]">leaders, designers, developers, problem solvers</i> and many
@@ -25,7 +25,7 @@ export default function page() {
 
                 <div>
                     <section className="text-center py-10 my-10" style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px", backgroundImage: "url('/patterns/double-bubble-outline.png')" }}>
-                        <span className="text-3xl font-normal text-center bg-yellow-300 px-10 rounded-sm text-white">GDSC Lead 2023</span>
+                        <span className="text-3xl font-normal text-center bg-[#EEB211] px-10 rounded-sm text-white">GDSC Lead 2023</span>
                     </section>
                     <section style={{ maxWidth: "1000px" }} className="m-auto flex gap-16 flex-wrap justify-center items-center">
                         <MemberCard
@@ -42,7 +42,7 @@ export default function page() {
 
                 <div>
                     <section className="text-center py-10 my-10" style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px", backgroundImage: "url('/patterns/double-bubble-outline.png')" }}>
-                        <span className="text-3xl font-normal text-center bg-yellow-300 px-10 rounded-sm text-white">Core Team</span>
+                        <span className="text-3xl font-normal text-center bg-green-500 px-10 rounded-sm text-white">Core Team</span>
                     </section>
                     <section style={{ maxWidth: "1000px" }} className="m-auto flex gap-16 flex-wrap justify-center items-center">
                         {
@@ -64,7 +64,7 @@ export default function page() {
 
                 <div className="mb-10">
                     <section className="text-center py-10 my-10" style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px", backgroundImage: "url('/patterns/double-bubble-outline.png')" }}>
-                        <span className="text-3xl font-normal text-center bg-yellow-300 px-10 rounded-sm text-white">Core Members</span>
+                        <span className="text-3xl font-normal text-center bg-red-500 px-10 rounded-sm text-white">Core Members</span>
                     </section>
                     <section style={{ maxWidth: "1000px" }} className="m-auto flex gap-16 flex-wrap justify-center items-center">
                         {

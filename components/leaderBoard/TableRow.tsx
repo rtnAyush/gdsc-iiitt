@@ -18,7 +18,7 @@ export default function TableRow({ participant, maxCourseComp }: { participant: 
                     className={`w-fit m-auto rounded-3xl px-4 py-1 text-center ${participant["redemption_status"] === "Yes"
                         ? "bg-green-200 text-green-600"
                         : "bg-yellow-200 text-yellow-600"
-                        }`}
+                    }`}
                 >
                     {participant["redemption_status"] === "Yes" ? "Done" : "Error !"}
                 </div>
@@ -30,7 +30,7 @@ export default function TableRow({ participant, maxCourseComp }: { participant: 
                         "U. V. Patel College of Engineering - Mehsana"
                         ? "bg-green-200 text-green-600"
                         : "bg-yellow-200 text-yellow-600"
-                        }`}
+                    }`}
                 >
                     {participant["institution"] ===
                         "Indian Institute of Information Technology (IIIT) - Tiruchirapalli"
@@ -45,7 +45,7 @@ export default function TableRow({ participant, maxCourseComp }: { participant: 
                     className={`m-auto w-fit rounded-3xl px-5 py-1 text-center ${participant["total_completions_of_both_pathways"] === "Yes"
                         ? "bg-green-200 text-green-600"
                         : "bg-yellow-200 text-yellow-600"
-                        }`}
+                    }`}
                 >
                     {participant["total_completions_of_both_pathways"] === "Yes"
                         ? "Yes"

@@ -32,7 +32,7 @@ export default function TableBody({ participationData, searchByName }: { partici
     return (
         <tbody className='text-xs '>
             {
-                participationData?.length !== 0 ? participationData.map((participant, index) => {
+                participationData?.length !== 0 ? participationData.map((participant) => {
 
                     return <TableRow
                         maxCourseComp={maxCourseComp}

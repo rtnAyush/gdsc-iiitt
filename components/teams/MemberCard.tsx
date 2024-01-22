@@ -8,13 +8,12 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
-import styles from '../../styles/MemberCard.module.css'
-import { cn } from "@/lib/utils";
+import styles from '../../styles/MemberCard.module.css';
 import { useState } from "react";
 
 
 const colors = ["#3DA3F4", "#F36E67", "#91CE93", "#FFD763"];
-const patterns = ["double-bubble-outline.png", "more-leaves.png", "moroccan-flower.png", "spikes.png"]
+const patterns = ["double-bubble-outline.png", "more-leaves.png", "moroccan-flower.png", "spikes.png"];
 
 export default function MemberCard({ idx, name, role, imageUrl, linkedinUrl, githubUrl }: { idx: number, name: string, role: string, imageUrl: string, linkedinUrl: string, githubUrl: string }) {
     const [isHovered, setIsHovered] = useState(false);
