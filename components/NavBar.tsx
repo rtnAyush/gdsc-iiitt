@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import NavMenu from "./NavMenu";
+import Profile from "./Profile";
 
 
 export default function NavBar() {
@@ -45,7 +46,7 @@ export default function NavBar() {
           <Link href="/events">Events</Link>
           <Link href="/team">Teams</Link>
           <Link href="/leaderboard">LeaderBoard</Link>
-          <Button variant="default">Join Club</Button>
+          <Profile/>
         </div>
         <NavMenu className="lg:hidden"/>
       </div>
