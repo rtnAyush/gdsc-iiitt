@@ -1,7 +1,7 @@
 'use client'
 
 import {useFormStatus} from 'react-dom'
-export default function Button({disable}) {
+export default function Button({disable}:{disable:boolean}) {
     const {pending}=useFormStatus()
     return (
         <button

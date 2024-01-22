@@ -5,7 +5,7 @@ export const authConfig = {
     signIn: '/login',
   },
   callbacks: {
-    authorized({ auth, request: { nextUrl } }) {
+    authorized({ auth, request: { nextUrl } }:any): boolean | Response {
       const isLoggedIn = !!auth?.user;
 
       const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix)

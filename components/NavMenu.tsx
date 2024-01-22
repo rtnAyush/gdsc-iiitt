@@ -14,7 +14,7 @@ import { MdLeaderboard } from "react-icons/md";
 import Link from "next/link"
 import { buttonVariants } from "@/components/ui/button"
 
-export default function NavMenu({ className }) {
+export default function NavMenu({ className }: { className?: string }) {
     {
         return (
             <div className={cn(className)}>

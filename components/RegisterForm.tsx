@@ -7,7 +7,7 @@ import { useFormState } from 'react-dom';
 import { BiSolidError } from "react-icons/bi"
 
 export default function RegisterForm() {
-    const [registerData, setRegisterData] = useState({ username: '',email:'', email: '', password1: '', password2: '' })
+    const [registerData, setRegisterData] = useState({ username: '',name:'', email: '', password1: '', password2: '' })
     const [message, clientAction] = useFormState(registerWithCredentials, undefined)
 
     return (
@@ -33,7 +33,7 @@ export default function RegisterForm() {
                 className='border border-t-0 border-gray-300 h-10 px-4 focus:outline-none font-sans text-sm font-normal'
                 type="text"
                 value={registerData.name}
-                onChange={(e) => setRegisterData({ ...registerData, email: e.target.value })}
+                onChange={(e) => setRegisterData({ ...registerData, name: e.target.value })}
                 placeholder="Enter your name"
             />
             <input
