@@ -9,10 +9,9 @@ import {
 import { cn } from "@/lib/utils"
 import { RxHamburgerMenu } from "react-icons/rx"
 import { FaHome,FaCalendarAlt } from "react-icons/fa";
-import { RiTeamFill } from "react-icons/ri";
+import { RiTeamFill,RiAdminFill } from "react-icons/ri";
 import { MdLeaderboard } from "react-icons/md";
 import Link from "next/link"
-import { buttonVariants } from "@/components/ui/button"
 
 export default function NavMenu({ className }: { className?: string }) {
     {
@@ -49,7 +48,12 @@ export default function NavMenu({ className }: { className?: string }) {
                                     Leaderboard
                                 </Link>
                             </SheetTrigger>
-                            <Link href="/" className={`${buttonVariants({ variant: "default" })} w-28 m-4`}>Join Club</Link>
+                            <SheetTrigger asChild>
+                                <Link href="/admin" className="flex items-center p-3 text-xl hover:bg-slate-200">
+                                    <RiAdminFill className="inline-block mr-2" size={20} />
+                                    Admin
+                                </Link>
+                            </SheetTrigger>
                         </div>
                     </SheetContent>
                 </Sheet>

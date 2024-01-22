@@ -46,7 +46,7 @@ export default function NavBar() {
           <Link href="/events">Events</Link>
           <Link href="/team">Teams</Link>
           <Link href="/leaderboard">LeaderBoard</Link>
-          <Profile/>
+          <Link href="/admin" className={buttonVariants({variant:"secondary"})}>Admin</Link>
         </div>
         <NavMenu className="lg:hidden"/>
       </div>
