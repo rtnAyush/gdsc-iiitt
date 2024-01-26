@@ -71,4 +71,5 @@ export async function postEvent(prevState:any, formData:any) {
             message: "Something went wrong."
         }
     }
+    revalidatePath('/admin')
 }
