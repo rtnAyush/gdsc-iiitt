@@ -13,23 +13,16 @@
     "@prisma/client": "^5.5.2",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
-<<<<<<< HEAD
-    "@radix-ui/react-slot": "^1.0.2",
-=======
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tabs": "^1.0.4",
->>>>>>> main
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "lodash": "^4.17.21",
     "lucide-react": "^0.309.0",
     "next": "14.0.2",
     "next-auth": "^5.0.0-beta.5",
-<<<<<<< HEAD
-=======
     "next-themes": "^0.2.1",
->>>>>>> main
     "react": "^18",
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
