@@ -6,7 +6,7 @@ export default function HeroSection() {
     return (
         <div className="bg-gray-100 relative z-0" style={{ minHeight: "75vh" }}>
             <section className="pt-20 pb-10 flex flex-col items-center gap-16 max-w-6xl m-auto px-3 lg:gap-0 lg:flex-row ">
-                <div className="absolute z-[-2] top-0 left-[-18px] w-40 h-40 bg-red-500 rounded-br-full animate-floatX"
+                <div className="absolute z-[-2] top-0 left-[-18px] w-40 h-40 bg-red-500 rounded-br-full animate-floatY"
                     style={{
                         background: "radial-gradient(circle at 30% 30 %,#ffff00,#774400)",
                         boxShadow: " rgba(0, 0, 0, 0.16) 0px 1px 1px"
@@ -120,8 +120,8 @@ export default function HeroSection() {
                                 y1="0"
                                 y2="0"
                             >
-                                <stop stop-color="#00c16b" offset="0"></stop>
-                                <stop stop-color="#00c16b" offset="1"></stop>
+                                <stop stopColor="#00c16b" offset="0"></stop>
+                                <stop stopColor="#00c16b" offset="1"></stop>
                             </linearGradient>
                             <path d="" fill="url(#lg-0.7659895309868023)" opacity="0.27">
                                 <animate

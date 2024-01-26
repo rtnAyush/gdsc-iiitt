@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { buttonVariants } from "./ui/button";
 import NavMenu from "./NavMenu";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 
 export default function NavBar() {
     return (
@@ -32,10 +33,10 @@ export default function NavBar() {
                         />
                     </div>
                     <div className="text flex flex-col justify-start items-start">
-                        <p className="text-base">Google Devloper Student Club</p>
+                        <p className="text-base">Google Developer Student Club</p>
                         <p className="text-xs">
                             {" "}
-              Indian Institute of Information Technology Tiruchirappalli
+                            Indian Institute of Information Technology Tiruchirappalli
                         </p>
                     </div>
                 </Link>
@@ -44,9 +45,10 @@ export default function NavBar() {
                     <Link href="/events">Events</Link>
                     <Link href="/team">Teams</Link>
                     <Link href="/leaderboard">LeaderBoard</Link>
-                    <Link href="/admin" className={buttonVariants({variant:"secondary"})}>Admin</Link>
+                    <Link href="/admin" className={buttonVariants({ variant: "secondary" })}>Admin</Link>
+                    {/* <Link href="#"><ThemeSwitcher /></Link> */}
                 </div>
-                <NavMenu className="lg:hidden"/>
+                <NavMenu className="lg:hidden" />
             </div>
         </nav >
     );
