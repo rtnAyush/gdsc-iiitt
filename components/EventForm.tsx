@@ -13,38 +13,31 @@ const EventForm = () => {
                     <div className="flex flex-col md:flex-row gap-6 justify-between">
                         <section className="w-full md:w-1/2">
                             <label htmlFor="title">Title:</label>
-                            <Input type='text' placeholder="Enter title of event" name="title" />
+                            <Input type='text' placeholder="Enter title of event" name="title" required/>
                         </section>
 
                         <section className="w-full md:w-1/2">
                             <label htmlFor="location">Location:</label>
-                            <Input type='text' placeholder="online/offline" name='location' />
+                            <Input type='text' placeholder="online/offline" name='location' required/>
                         </section>
                     </div>
 
                     <div className="flex flex-col md:flex-row gap-6 justify-between">
                         <section className="w-full md:w-1/2">
                             <label htmlFor="date">Date:</label>
-                            <Input type='date' name='date' />
+                            <Input type="datetime-local" name='date' required/>
                         </section>
 
-                        <section className="w-full md:w-1/2">
+                        {/* <section className="w-full md:w-1/2">
                             <label htmlFor="time">Time:</label>
                             <Input type='time' name="time" />
-                        </section>
-                    </div>
-
-                    <div className="flex flex-col md:flex-row gap-6 justify-between">
-                        <section className="w-full md:w-1/2">
-                            <label htmlFor="tags">Tags:</label>
-                            <Input type='text' placeholder="#open-source,#web-dev" name="tags" />
-                        </section>
-
+                        </section> */}
                         <section className="w-full md:w-1/2">
                             <label htmlFor="imgUrl">Image URL:</label>
-                            <Input type='file' accept='.jpg, .png' name="img" />
+                            <Input type='file' accept='.jpg, .png' name="img" required/>
                         </section>
                     </div>
+
                     <section className="flex flex-col">
                         <label htmlFor="description">Description:</label>
                         <textarea

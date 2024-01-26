@@ -35,6 +35,14 @@ model User {
   password  String?
   createdAt DateTime? @default(now())
 }
+model eventData {
+  id              String     @id @default(uuid())
+  title           String
+  description     String
+  dateTime        DateTime   @unique
+  img             String
+  location        String
+}
 
 model Member {
   id          String     @id @default(uuid())

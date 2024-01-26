@@ -1,42 +1,53 @@
 'use server'
-
-export async function postEvent(prevState, formData) {
+import { prisma } from "../prisma"
+import moment from 'moment'
+export async function postEvent(prevState:any, formData:any) {
+    
     const title = formData.get('title')
     const tags = formData.get('tags')
     const img = formData.get('img')
     const location = formData.get('location')
     const description = formData.get('description')
     const date = formData.get('date')
-    const time = formData.get('time')
 
+    // const time = formData.get('time')
+    
+    const mobj = moment(date , "YYYY-MM-DD HH:mm:ss") as any;
+    const samay = mobj.format() as any
+    
     try {
+        
+        //find if event exists
+        const eventTime = await prisma.eventData.findUnique({
+            where: {
+                dateTime: samay,
+            }
+        });
 
-        // //find if user exists
-        // const eventTime = await prisma.eve.findUnique({
-        //     where: {
-        //         username: username,
-        //     }
-        // })
+        //if event exists, return error
+        if (eventTime) {
+            return {
+                error: true,
+                message: "An event already exists on given time"
+            }
+        }
+        
 
-        // //if user exists, return error
-        // if (eventTime) {
-        //     return {
-        //         error: true,
-        //         message: "Username already exists"
-        //     }
-        // }
+        //if event does not exist, create event
+        await prisma.eventData.create({
+            data: {
+                title: title,
+                tags: tags,
+                img: "img",
+                location: location,
+                description: description,
+                dateTime: samay,
+            },
+        })
+        
 
-        // //if user does not exist, create user
-        // await prisma.user.create({
-        //     data: {
-        //         username: username,
-        //         name: name,
-        //         email: email,
-        //         password: password
-        //     },
-        // })
-
-    } catch (err) {
+    } catch (err : any) {
+        console.log(err.message);
         return {
             error: true,
             message: "Something went wrong."
