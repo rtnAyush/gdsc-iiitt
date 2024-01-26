@@ -4,9 +4,8 @@ import moment from 'moment'
 export async function postEvent(prevState:any, formData:any) {
     
     const title = formData.get('title')
-    const tags = formData.get('tags')
     const img = formData.get('img')
-    const location = formData.get('location')
+    const mode = formData.get('mode')
     const description = formData.get('description')
     const date = formData.get('date')
 
@@ -37,9 +36,8 @@ export async function postEvent(prevState:any, formData:any) {
         await prisma.eventData.create({
             data: {
                 title: title,
-                tags: tags,
                 img: "img",
-                location: location,
+                mode: mode,
                 description: description,
                 dateTime: samay,
             },

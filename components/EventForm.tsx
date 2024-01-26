@@ -18,7 +18,7 @@ const EventForm = () => {
 
                         <section className="w-full md:w-1/2">
                             <label htmlFor="location">Location:</label>
-                            <Input type='text' placeholder="online/offline" name='location' required/>
+                            <Input type='text' placeholder="online/offline" name='mode' required/>
                         </section>
                     </div>
 

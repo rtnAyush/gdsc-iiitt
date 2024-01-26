@@ -41,7 +41,7 @@ model eventData {
   description     String
   dateTime        DateTime   @unique
   img             String
-  location        String
+  mode            String
 }
 
 model Member {
