@@ -1,4 +1,4 @@
-import Admin from "@/components/Admin";
+import Admin from "@/components/admin/Admin";
 
 export default async function page() {
     return (

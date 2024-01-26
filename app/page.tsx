@@ -2,36 +2,10 @@ import FieldsCards from "@/components/FieldsCards";
 import HeroSection from "@/components/HeroSection";
 import HomePageEvent from "@/components/HomePageEvent";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import { fields } from "@/lib/constants/fields";
 
 
 export default async function Page() {
-    const fields = [
-        {
-            h2: 'Web Development',
-            img: "/assets/web_pic.png",
-            para: 'Web development is the work involved in developing a Web site for the Internet or an intranet. Web development can range from developing a simple single static page of plain text to complex Web-based Internet applications, electronic businesses, and social network services.'
-        },
-        {
-            h2: 'Web Development',
-            img: "/assets/web_pic.png",
-            para: 'Web development is the work involved in developing a Web site for the Internet or an intranet. Web development can range from developing a simple single static page of plain text to complex Web-based Internet applications, electronic businesses, and social network services.'
-        },
-        {
-            h2: 'Web Development',
-            img: "/assets/web_pic.png",
-            para: 'Web development is the work involved in developing a Web site for the Internet or an intranet. Web development can range from developing a simple single static page of plain text to complex Web-based Internet applications, electronic businesses, and social network services.'
-        },
-        {
-            h2: 'Web Development',
-            img: "/assets/web_pic.png",
-            para: 'Web development is the work involved in developing a Web site for the Internet or an intranet. Web development can range from developing a simple single static page of plain text to complex Web-based Internet applications, electronic businesses, and social network services.'
-        },
-        {
-            h2: 'Web Development',
-            img: '/assets/web_pic.png',
-            para: 'Web development is the work involved in developing a Web site for the Internet or an intranet. Web development can range from developing a simple single static page of plain text to complex Web-based Internet applications, electronic businesses, and social network services.'
-        },
-    ]
 
 
     return (
