@@ -1,6 +1,26 @@
 'use server'
+import { revalidatePath } from "next/cache";
 import { prisma } from "../prisma"
 import moment from 'moment'
+
+export async function getEvents() {
+    try {
+        const events = await prisma.eventData.findMany({
+            orderBy: {
+                dateTime: 'asc'
+            }
+        });
+        return events;
+    } catch (err : any) { 
+        console.log(err.message);
+        return {
+            error: true, 
+            message: "Something went wrong."
+        }
+    }
+}
+
+
 export async function postEvent(prevState:any, formData:any) {
     
     const title = formData.get('title')
