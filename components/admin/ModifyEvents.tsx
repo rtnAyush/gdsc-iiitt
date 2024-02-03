@@ -12,29 +12,22 @@ import { Badge } from "@/components/ui/badge"
 
 import { getEvents } from '@/lib/actions/events.action'
 
-interface Event {
-    id:string,
-    dateTime: any,
-    title: string,
-    mode: string,
-}
+import { Event } from '@/utils/types'
+
 import moment from 'moment';
 
 export default async function ModifyEvents() {
     // TODO: Fetch events
-    const events = await getEvents() as any || []; 
+    const events:any = await getEvents(); 
     
-    console.log(events);
-    
-    
-    const rows = events.map((event: Event) => {
+    const rows = events.data.map((event: Event) => {
         const mobj = moment(event.dateTime , "YYYY-MM-DD HH:mm:ss") as any;
         const samay = mobj.format().slice(0,10) as any
         
         return (
             <TableRow key={event.id}>
                 <TableCell>{samay}</TableCell>
-                <TableCell>{event.title}</TableCell>
+                <TableCell>{event.title.substring(0, 50)} {event.title.split("").length > 50 && "..."}</TableCell>
                 <TableCell>{new Date(event.dateTime) > new Date() ? <Badge variant='default'>Ongoing</Badge> : <Badge variant='destructive'>Expired</Badge>}</TableCell>
                 <TableCell>{event.mode}</TableCell>
             </TableRow> 
