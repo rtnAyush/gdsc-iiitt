@@ -3,60 +3,57 @@ import { revalidatePath } from "next/cache";
 import { prisma } from "../prisma"
 import moment from 'moment'
 
-export async function getEvents(date?: Date, type?: string) {
+export async function getEvents(date?: Date, type?: string, quantity?: number) {
     try {
+        let whereCondition = {};
         switch (type) {
             case "upcoming":
-                const upcomingEvents = await prisma.eventData.findMany({
-                    where: {
-                        dateTime: {
-                            gt: date,
-                        }
+                whereCondition = {
+                    dateTime: {
+                        gte: date,
                     }
-                })
-                return {
-                    error: false,
-                    data: upcomingEvents
-                }
+                };
+                break;
             case "past":
-                const pastEvents = await prisma.eventData.findMany({
-                    where: {
-                        dateTime: {
-                            lt: date,
-                        }
+                whereCondition = {
+                    dateTime: {
+                        lt: date,
                     }
-                })
-                return {
-                    error: false,
-                    data: pastEvents
-                }
+                };
+                break;
             case "ongoing":
-                const ongoingEvents = await prisma.eventData.findMany({
-                    where: {
-                        dateTime: {
-                            equals: date,
-                        }
+                whereCondition = {
+                    dateTime: {
+                        equals: date,
                     }
-                })
-                return {
-                    error: false,
-                    data: ongoingEvents
-                }
+                };
+                break;
             default:
-                const allEvents = await prisma.eventData.findMany()
-                return {
-                    error: false,
-                    data: allEvents
-                }
+                // No specific type, fetch all events
+                break;
         }
+
+        const eventsQuery = {
+            where: whereCondition,
+            take: quantity, // Add take option for limiting records
+            
+        };
+
+        const events = await prisma.eventData.findMany(eventsQuery);
+
+        return {
+            error: false,
+            data: events
+        };
     } catch (err: any) {
         console.log(err.message);
         return {
             error: true,
             message: "Something went wrong."
-        }
+        };
     }
 }
+
 
 
 export async function postEvent(prevState: any, formData: any) {

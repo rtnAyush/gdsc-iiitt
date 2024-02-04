@@ -11,9 +11,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function EventsCards({ id, title, dateTime, desciption, img,mode }: { id:String, title: string, dateTime: Date,  desciption: string, mode: string, img?: string }) {
-    const link = `/events/${id}`
+    const link = `/events/`
     return (
-        <Card className="" style={{ boxShadow: "5px 5px 10px #cdcfcf, -5px -3px 5px #fff" }}>
+        <Card className="flex flex-col" style={{ boxShadow: "5px 5px 10px #cdcfcf, -5px -3px 5px #fff" }}>
             <CardHeader
                 className="p-0 relative flex justify-center items-center rounded-t-lg"
             >
@@ -33,8 +33,8 @@ export default function EventsCards({ id, title, dateTime, desciption, img,mode 
                 </Link>
                 <p className="leading-normal text-justify text-[14px]">{dateTime?.toLocaleDateString()} {dateTime?.toLocaleTimeString()} | {mode}</p>
             </CardHeader>
-            <CardContent>
-                <CardDescription className="break-all">{desciption.substring(0, 235)} {desciption.split("").length > 240 && "..."} {desciption.split("").length > 240 && <Link href={link}>Read More</Link>}</CardDescription>
+            <CardContent className="flex-1">
+                <CardDescription className="break-all">{desciption.substring(0, 200)} {desciption.split("").length > 210 && "..."} {desciption.split("").length > 240 && <Link href={link}>Read More</Link>}</CardDescription>
             </CardContent>
             <CardFooter className="flex flex-col items-start gap-6">
                 <Button variant="default">Register Now</Button>

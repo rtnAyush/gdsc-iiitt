@@ -22,10 +22,12 @@ const EventForm = () => {
                     <label htmlFor="title">Title:</label>
                     <Input type='text' placeholder="Enter title of event" name="title" required />
                 </section>
-
                 <section className="w-full md:w-1/2">
-                    <label htmlFor="location">Location:</label>
-                    <Input type='text' placeholder="online/offline" name='mode' required />
+                    <label htmlFor="mode">Mode:</label>
+                    <select name="mode" className="p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
+                        <option value="online">Online</option>
+                        <option value="offline">Offline</option>
+                    </select>
                 </section>
             </div>
 

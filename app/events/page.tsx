@@ -10,11 +10,7 @@ export default async function Page() {
     const currentDate = new Date();
     const ongoingEvents :any = await getEvents(currentDate,'ongoing') ;
     const upcomingEvents:any = await getEvents(currentDate,'upcoming') ;
-    const pastEvents:any = await getEvents(currentDate,'past') ;
-
-    console.log(ongoingEvents);
-    console.log(upcomingEvents);
-    console.log(pastEvents);
+    const pastEvents:any = await getEvents(currentDate,'past') ;  
     
 
     return (
@@ -46,9 +42,9 @@ export default async function Page() {
                 <section className="">
                     <div className="max-w-6xl m-auto py-10 px-3">
                         <h2 className="text-2xl">Ongoing events</h2>
-                        <div className="grid gap-x-4 gap-y-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6">
+                        <div className="grid gap-x-6 gap-y-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6">
                             {
-                                ongoingEvents.data.length > 0 ?
+                                ongoingEvents.data?.length > 0 ?
                                     ongoingEvents.data.map((event:any) => (
                                         <EventsCards
                                             key={event.id}
@@ -72,7 +68,7 @@ export default async function Page() {
                         <h2 className="text-2xl">Upcoming events</h2>
                         <div className="grid gap-x-4 gap-y-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6">
                             {
-                                upcomingEvents.data.length > 0 ?
+                                upcomingEvents.data?.length > 0 ?
                                     upcomingEvents.data.map((event:any) => (
                                         <EventsCards
                                             key={event.id}
@@ -97,7 +93,7 @@ export default async function Page() {
                         <h2 className="text-2xl">Past events</h2>
                         <div className="grid gap-x-4 gap-y-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6">
                             {
-                                pastEvents.data.length > 0 ?
+                                pastEvents.data?.length > 0 ?
                                     pastEvents.data.map((event:any) => (
                                         <EventsCards
                                             key={event.id}
