@@ -7,30 +7,30 @@ export async function getEvents(date?: Date, type?: string, quantity?: number) {
     try {
         let whereCondition = {};
         switch (type) {
-            case "upcoming":
-                whereCondition = {
-                    dateTime: {
-                        gte: date,
-                    }
-                };
-                break;
-            case "past":
-                whereCondition = {
-                    dateTime: {
-                        lt: date,
-                    }
-                };
-                break;
-            case "ongoing":
-                whereCondition = {
-                    dateTime: {
-                        equals: date,
-                    }
-                };
-                break;
-            default:
-                // No specific type, fetch all events
-                break;
+        case "upcoming":
+            whereCondition = {
+                dateTime: {
+                    gte: date,
+                }
+            };
+            break;
+        case "past":
+            whereCondition = {
+                dateTime: {
+                    lt: date,
+                }
+            };
+            break;
+        case "ongoing":
+            whereCondition = {
+                dateTime: {
+                    equals: date,
+                }
+            };
+            break;
+        default:
+            // No specific type, fetch all events
+            break;
         }
 
         const eventsQuery = {
@@ -59,7 +59,7 @@ export async function getEvents(date?: Date, type?: string, quantity?: number) {
 export async function postEvent(prevState: any, formData: any) {
 
     const title = formData.get('title')
-    const img = formData.get('img')
+    // const img = formData.get('img')
     const mode = formData.get('mode')
     const description = formData.get('description')
     const date = formData.get('date')

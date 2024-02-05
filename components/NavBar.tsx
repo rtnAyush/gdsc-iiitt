@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { buttonVariants } from "./ui/button";
 import NavMenu from "./NavMenu";
-import { ThemeSwitcher } from "./ThemeSwitcher";
+// import { ThemeSwitcher } from "./ThemeSwitcher";
 import { auth } from "@/lib/auth/auth";
 
 export default async function NavBar() {

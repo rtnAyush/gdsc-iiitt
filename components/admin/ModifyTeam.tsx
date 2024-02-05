@@ -1,8 +1,8 @@
 "use client";
 import { useState } from 'react';
-import { addStudentDatas, fetchStudentData } from '@/lib/actions/student.action';
-import parsedData from '@/controllers/studentdata.controller';
-import toast from 'react-hot-toast';
+// import { addStudentDatas, fetchStudentData } from '@/lib/actions/student.action';
+// import parsedData from '@/controllers/studentdata.controller';
+// import toast from 'react-hot-toast';
 import DeleteModal from './DeleteModal';
 import {
     Card,
@@ -28,59 +28,59 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+// import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 
 
 
 export default function ModifyLeaderBoard() {
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const [show, setShow] = useState(false);
 
-    async function handleSubmit(formData: FormData) {
+    // async function handleSubmit(formData: FormData) {
 
-        const file = formData.get('excel-file');
+    //     const file = formData.get('excel-file');
 
-        if (!file) {
-            console.log("No file selected.");
-            return;
-        }
+    //     if (!file) {
+    //         console.log("No file selected.");
+    //         return;
+    //     }
 
-        try {
-            setLoading(true);
-            const exsitingdata = await fetchStudentData();
-            const parsedDataResult = await parsedData({ file: file as Blob, existingData: exsitingdata?.data || [] });
-            if (parsedDataResult?.error) {
-                toast.error(parsedDataResult.msg);
-                return;
-            }
-            const res = addStudentDatas(parsedDataResult.data);
-            toast.promise(
-                res,
-                {
-                    loading: 'Loading',
-                    success: "Successfully saved",
-                    error: "something went wrong",
-                },
-                {
-                    style: {
-                        minWidth: '250px',
-                    },
-                    success: {
-                        duration: 5000,
-                        icon: '🔥',
-                    },
-                }
-            );
-        } catch (error: any) {
-            toast.error("Error parsing data:", error);
-        } finally {
-            setLoading(false);
-        }
+    //     try {
+    //         setLoading(true);
+    //         const exsitingdata = await fetchStudentData();
+    //         const parsedDataResult = await parsedData({ file: file as Blob, existingData: exsitingdata?.data || [] });
+    //         if (parsedDataResult?.error) {
+    //             toast.error(parsedDataResult.msg);
+    //             return;
+    //         }
+    //         const res = addStudentDatas(parsedDataResult.data);
+    //         toast.promise(
+    //             res,
+    //             {
+    //                 loading: 'Loading',
+    //                 success: "Successfully saved",
+    //                 error: "something went wrong",
+    //             },
+    //             {
+    //                 style: {
+    //                     minWidth: '250px',
+    //                 },
+    //                 success: {
+    //                     duration: 5000,
+    //                     icon: '🔥',
+    //                 },
+    //             }
+    //         );
+    //     } catch (error: any) {
+    //         toast.error("Error parsing data:", error);
+    //     } finally {
+    //         setLoading(false);
+    //     }
 
 
-    };
+    //};
 
     return (
         <Card>
@@ -101,7 +101,7 @@ export default function ModifyLeaderBoard() {
                             <DialogHeader>
                                 <DialogTitle asChild>Edit profile</DialogTitle>
                                 <DialogDescription>
-                                    Make changes to your profile here. Click save when you're done.
+                                    Make changes to your profile here. Click save when you&apos;re done.
                                 </DialogDescription>
                             </DialogHeader>
                             <form className="grid gap-4 py-4">

@@ -22,7 +22,7 @@ export default async function HomePageEvent() {
                                 upcomingEvents.data.map((event: any) => (
                                     <EventsCards
                                         key={event.id}
-                                        id={event.id}
+                                        // id={event.id}
                                         title={event.title}
                                         dateTime={event.dateTime}
                                         desciption={event.description}

@@ -10,7 +10,7 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function EventsCards({ id, title, dateTime, desciption, img,mode }: { id:String, title: string, dateTime: Date,  desciption: string, mode: string, img?: string }) {
+export default function EventsCards({ title, dateTime, desciption, img,mode }: { title: string, dateTime: Date,  desciption: string, mode: string, img?: string }) {
     const link = `/events/`
     return (
         <Card className="flex flex-col" style={{ boxShadow: "5px 5px 10px #cdcfcf, -5px -3px 5px #fff" }}>

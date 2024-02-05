@@ -1,7 +1,7 @@
 import EventsCards from "@/components/EventsCards";
 import Carousel from "@/components/Carousel";
 import { getEvents } from "@/lib/actions/events.action";
-import { Event } from "@/utils/types";
+// import { Event } from "@/utils/types";
 
 export default async function Page() {
 
@@ -48,7 +48,7 @@ export default async function Page() {
                                     ongoingEvents.data.map((event:any) => (
                                         <EventsCards
                                             key={event.id}
-                                            id={event.id}
+                                            // id={event.id}
                                             title={event.title}
                                             dateTime={event.dateTime}
                                             desciption={event.description}
@@ -72,7 +72,7 @@ export default async function Page() {
                                     upcomingEvents.data.map((event:any) => (
                                         <EventsCards
                                             key={event.id}
-                                            id={event.id}
+                                            // id={event.id}
                                             title={event.title}
                                             dateTime={event.dateTime}
                                             desciption={event.description}
@@ -97,7 +97,7 @@ export default async function Page() {
                                     pastEvents.data.map((event:any) => (
                                         <EventsCards
                                             key={event.id}
-                                            id={event.id}
+                                            // id={event.id}
                                             title={event.title}
                                             dateTime={event.dateTime}
                                             desciption={event.description}
