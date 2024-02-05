@@ -114,3 +114,24 @@ export async function postEvent(prevState: any, formData: any) {
         }
     }
 }
+
+export async  function deleteEvent(id: string) {
+    try {
+        await prisma.eventData.delete({
+            where: {
+                id: id
+            }
+        })
+        revalidatePath('/admin')
+        return {
+            error: false,
+            message: "Event deleted successfully"
+        }
+    } catch (err: any) {
+        console.log(err.message);
+        return {
+            error: true,
+            message: "Something went wrong."
+        }
+    }
+}
