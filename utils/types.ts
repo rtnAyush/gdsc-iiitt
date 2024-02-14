@@ -19,3 +19,12 @@ export interface studentDataType {
 	total_completions_of_both_pathways: string;
 	redemption_status: string;
 }
+
+export interface Event {
+    id:string,
+	description: string,
+    dateTime: Date,
+	img: string,
+    title: string,
+    mode: string,
+}

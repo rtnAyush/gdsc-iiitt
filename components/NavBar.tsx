@@ -2,9 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { buttonVariants } from "./ui/button";
 import NavMenu from "./NavMenu";
-import { ThemeSwitcher } from "./ThemeSwitcher";
+// import { ThemeSwitcher } from "./ThemeSwitcher";
+import { auth } from "@/lib/auth/auth";
 
-export default function NavBar() {
+export default async function NavBar() {
+    const session = await auth()
     return (
         <nav className="w-full shadow-md relative ">
             {/* <div className="bg-gray-900 text-blue-500 w-full m-auto text-center p-2 flex justify-center items-center">
@@ -45,7 +47,7 @@ export default function NavBar() {
                     <Link href="/events">Events</Link>
                     <Link href="/team">Teams</Link>
                     <Link href="/leaderboard">LeaderBoard</Link>
-                    <Link href="/admin" className={buttonVariants({ variant: "secondary" })}>Admin</Link>
+                    <Link href="/admin" className={buttonVariants({ variant: session? 'default':"secondary" })}>Admin</Link>
                     {/* <Link href="#"><ThemeSwitcher /></Link> */}
                 </div>
                 <NavMenu className="lg:hidden" />
