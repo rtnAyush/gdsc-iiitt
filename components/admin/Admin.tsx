@@ -11,13 +11,15 @@ export default function LeaderBoardUpload() {
         <main className="flex justify-center items-center my-10">
             <MaxWidthWrapper>
                 <Tabs defaultValue="home">
-                    <TabsList className="flex justify-center">
-                        <TabsTrigger value="home">Home</TabsTrigger>
-                        <TabsTrigger value="events">Events</TabsTrigger>
-                        <TabsTrigger value="team">Modify Team</TabsTrigger>
-                        <TabsTrigger value="leader-board">Modify Leader Board</TabsTrigger>
-                        <TabsTrigger value="users">Modify Users</TabsTrigger>
-                    </TabsList>
+                    <div className="overflow-scroll">
+                        <TabsList className="min-w-full">
+                            <TabsTrigger value="home">Home</TabsTrigger>
+                            <TabsTrigger value="events">Events</TabsTrigger>
+                            <TabsTrigger value="team">Modify Team</TabsTrigger>
+                            <TabsTrigger value="leader-board">Modify Leader Board</TabsTrigger>
+                            <TabsTrigger value="users">Modify Users</TabsTrigger>
+                        </TabsList>
+                    </div>
                     <TabsContent value="home"><Home /></TabsContent>
                     <TabsContent value="events"><UploadEvents /></TabsContent>
                     <TabsContent value="team"> <ModifyTeam /></TabsContent>
