@@ -16,7 +16,7 @@ export default function Events() {
             <Tabs defaultValue="home">
                 <CardHeader className='flex flex-row justify-between'>
                     <div>
-                        <CardTitle>Events</CardTitle>
+                        <CardTitle className='text-lg md:text-xl'>Events</CardTitle>
                         <CardDescription>
                             Manage events on the website
                         </CardDescription>

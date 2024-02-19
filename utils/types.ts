@@ -28,3 +28,10 @@ export interface Event {
     title: string,
     mode: string,
 }
+export interface Session {
+    user:{
+		name: string,
+		email: string,
+	},
+	expires: Date,
+}

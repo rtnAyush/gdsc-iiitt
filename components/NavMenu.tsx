@@ -7,8 +7,8 @@ import {
 } from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
 import { RxHamburgerMenu } from "react-icons/rx"
-import { FaHome,FaCalendarAlt } from "react-icons/fa";
-import { RiTeamFill,RiAdminFill } from "react-icons/ri";
+import { FaHome, FaCalendarAlt } from "react-icons/fa";
+import { RiTeamFill, RiAdminFill } from "react-icons/ri";
 import { MdLeaderboard } from "react-icons/md";
 import Link from "next/link"
 

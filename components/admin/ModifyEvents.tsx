@@ -17,7 +17,7 @@ import moment from 'moment';
 
 export default async function ModifyEvents() {
     const events:any = await getEvents();
-    
+
     const rows = events.data.map((event: Event) => {
         const mobj = moment(event.dateTime , "YYYY-MM-DD HH:mm:ss") as any;
         const samay = mobj.format().slice(0,10) as any
@@ -38,10 +38,10 @@ export default async function ModifyEvents() {
             <TableHeader>
                 <TableRow>
                     <TableHead>Date</TableHead>
-                    <TableHead >Title</TableHead>
-                    <TableHead   className="w-[100px]">Status</TableHead>
-                    <TableHead className="w-[100px]">Mode</TableHead>
-                    <TableHead className="w-[100px]">Action</TableHead>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Status</TableHead>
+                    <TableHead>Mode</TableHead>
+                    <TableHead>Action</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
