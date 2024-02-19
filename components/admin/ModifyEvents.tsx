@@ -17,8 +17,8 @@ import moment from 'moment';
 
 export default async function ModifyEvents() {
     const events:any = await getEvents();
-    
-    const rows = events.data?.map((event: Event) => {
+
+    const rows = events.data.map((event: Event) => {
         const mobj = moment(event.dateTime , "YYYY-MM-DD HH:mm:ss") as any;
         const samay = mobj.format().slice(0,10) as any
         
