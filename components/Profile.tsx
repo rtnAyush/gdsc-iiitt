@@ -9,10 +9,10 @@ import {
 import { LuLogOut } from "react-icons/lu"
 import Link from "next/link"
 import { buttonVariants } from "./ui/button";
-import { auth, signOut } from "@/lib/auth/auth";
+import { auth, signOut } from "@/auth";
 
 export default async function Profile() {
-    const session = await auth()    
+    const session = await auth()
     return (
         <div>
             {

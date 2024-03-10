@@ -23,6 +23,6 @@
     },
     "baseUrl": "."
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "middleware.ts", "lib/auth/auth.js","types/**/*.ts", "lib/actions/auth.action.js", "lib/auth/config/auth.config.ts", "lib/actions/events.action.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "middleware.js", "lib/auth/auth.ts","types/**/*.ts", "lib/actions/auth.action.js", "lib/auth/config/auth.config.ts", "lib/actions/events.action.ts", "auth.js"],
   "exclude": ["node_modules"]
 }
