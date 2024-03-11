@@ -4,7 +4,6 @@ import { useFormState } from 'react-dom'
 import { postEvent } from "@/lib/actions/events.action"
 import Button from "./Button";
 import { BiSolidError } from "react-icons/bi"
-import { CldUploadWidget } from 'next-cloudinary';
 
 const initialState = {
     error: false,
@@ -39,17 +38,6 @@ const EventForm = () => {
                 </section>
 
                 <section className="w-full md:w-1/2">
-                    {/* <CldUploadWidget uploadPreset="gdsc-iiitt">
-                        {({ open }) => {
-                            console.log(open);
-
-                            return (
-                                <button onClick={() => open()}>
-                                    Upload an Image
-                                </button>
-                            );
-                        }}
-                    </CldUploadWidget> */}
                     <label htmlFor="imgUrl">Image URL:</label>
                     <Input type='file' id="imgUrl" accept='.jpg, .png' name="img" required />
                 </section>
