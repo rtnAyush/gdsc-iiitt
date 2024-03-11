@@ -20,12 +20,13 @@ export default function LeaderBoardUpload() {
                             <TabsTrigger value="users">Modify Users</TabsTrigger>
                         </TabsList>
                     </div>
-
-                    <TabsContent value="home"><Home /></TabsContent>
-                    <TabsContent value="events"><UploadEvents /></TabsContent>
-                    <TabsContent value="team"> <ModifyTeam /></TabsContent>
-                    <TabsContent value="leader-board"><ModifyLeaderBoard /></TabsContent>
-                    <TabsContent value="users"><ModifyUsers /></TabsContent>
+                    <div className="h-[70vh]">
+                        <TabsContent value="home"><Home /></TabsContent>
+                        <TabsContent value="events"><UploadEvents /></TabsContent>
+                        <TabsContent value="team"> <ModifyTeam /></TabsContent>
+                        <TabsContent value="leader-board"><ModifyLeaderBoard /></TabsContent>
+                        <TabsContent value="users"><ModifyUsers /></TabsContent>
+                    </div>
                 </Tabs>
             </MaxWidthWrapper>
         </main>

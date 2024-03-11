@@ -7,24 +7,18 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 import { Button } from "./ui/button";
-import Image from "next/image";
 import Link from "next/link";
+import CloudinaryImg from "./CloudinaryImg";
 
-export default function EventsCards({ title, dateTime, desciption, img,mode }: { title: string, dateTime: Date,  desciption: string, mode: string, img?: string }) {
+export default function EventsCards({ title, dateTime, desciption, imgUrl, mode }: { title: string, dateTime: Date, desciption: string, mode: string, imgUrl?: string }) {
     const link = `/events/`
     return (
         <Card className="flex flex-col" style={{ boxShadow: "5px 5px 10px #cdcfcf, -5px -3px 5px #fff" }}>
             <CardHeader
                 className="p-0 relative flex justify-center items-center rounded-t-lg"
             >
-                <Image
-                    src={img || "/profile/pro-pic.jpeg"}
-                    alt=""
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    style={{ width: '100%', height: 'auto' }}
-                    className="overflow-hidden object-cover rounded-t-md"
+                <CloudinaryImg
+                    src={imgUrl || "/profile/pro-pic.jpeg"}
                 />
             </CardHeader>
             <CardHeader className="py-3">

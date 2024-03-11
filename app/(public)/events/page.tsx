@@ -8,10 +8,10 @@ export default async function Page() {
     //TODO: Fetch events and pass them to EventsCards
 
     const currentDate = new Date();
-    const ongoingEvents :any = await getEvents(currentDate,'ongoing') ;
-    const upcomingEvents:any = await getEvents(currentDate,'upcoming') ;
-    const pastEvents:any = await getEvents(currentDate,'past') ;  
-    
+    const ongoingEvents = await getEvents(currentDate, 'ongoing');
+    const upcomingEvents = await getEvents(currentDate, 'upcoming');
+    const pastEvents = await getEvents(currentDate, 'past');
+
 
     return (
         <>
@@ -44,8 +44,8 @@ export default async function Page() {
                         <h2 className="text-2xl">Ongoing events</h2>
                         <div className="grid gap-x-6 gap-y-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6">
                             {
-                                ongoingEvents.data?.length > 0 ?
-                                    ongoingEvents.data.map((event:any) => (
+                                ongoingEvents?.data ?
+                                    ongoingEvents.data.map((event) => (
                                         <EventsCards
                                             key={event.id}
                                             // id={event.id}
@@ -53,7 +53,7 @@ export default async function Page() {
                                             dateTime={event.dateTime}
                                             desciption={event.description}
                                             mode={event.mode}
-                                        // imgUrl={event.imgUrl}
+                                            imgUrl={event.img}
                                         />
                                     ))
                                     :
@@ -68,8 +68,8 @@ export default async function Page() {
                         <h2 className="text-2xl">Upcoming events</h2>
                         <div className="grid gap-x-4 gap-y-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6">
                             {
-                                upcomingEvents.data?.length > 0 ?
-                                    upcomingEvents.data.map((event:any) => (
+                                upcomingEvents.data ?
+                                    upcomingEvents.data.map((event) => (
                                         <EventsCards
                                             key={event.id}
                                             // id={event.id}
@@ -77,7 +77,7 @@ export default async function Page() {
                                             dateTime={event.dateTime}
                                             desciption={event.description}
                                             mode={event.mode}
-                                        // imgUrl={event.imgUrl}
+                                            imgUrl={event.img}
                                         />
                                     ))
                                     :
@@ -93,8 +93,8 @@ export default async function Page() {
                         <h2 className="text-2xl">Past events</h2>
                         <div className="grid gap-x-4 gap-y-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6">
                             {
-                                pastEvents.data?.length > 0 ?
-                                    pastEvents.data.map((event:any) => (
+                                pastEvents.data ?
+                                    pastEvents.data.map((event) => (
                                         <EventsCards
                                             key={event.id}
                                             // id={event.id}
@@ -102,7 +102,7 @@ export default async function Page() {
                                             dateTime={event.dateTime}
                                             desciption={event.description}
                                             mode={event.mode}
-                                        // imgUrl={event.imgUrl}
+                                            imgUrl={event.img}
                                         />
                                     ))
                                     :
