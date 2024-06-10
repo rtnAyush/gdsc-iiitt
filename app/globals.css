@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 
 @layer base {
   :root {
@@ -54,7 +54,32 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+
+.orbit-element {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 200px;
+  animation: orbit 8s linear infinite;
+  animation-fill-mode: forwards;
+  z-index: 10;
+  visibility: hidden;
+}
+
+@keyframes orbit {
+  from {
+    visibility: visible;
+    transform: rotate(0deg) translateX(200px) rotate(0deg);
+  }
+
+  to {
+    visibility: visible;
+    transform: rotate(360deg) translateX(200px) rotate(-360deg);
   }
 }

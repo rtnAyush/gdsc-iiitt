@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function HeroSection() {
     return (
-        <div className="bg-gray-100 relative z-0 flex justify-center" style={{ minHeight: "75vh" }}>
+        <div className="bg-gray-100 relative z-0 flex justify-center" style={{ minHeight: "80vh" }}>
             <div className="absolute z-[-2] top-0 left-[-18px] w-44 h-44 lg:w-52 lg:h-52 bg-red-500 rounded-br-full animate-floatX"
                 style={{
                     background: "radial-gradient(circle at 30% 30 %,#ffff00,#774400)",
@@ -92,12 +92,74 @@ export default function HeroSection() {
                     </div>
                 </section>
                 <section className="flex justify-center items-center animate-floatY">
-                    <Image
-                        src="/assets/dev.png"
-                        alt="gdsc-logo"
-                        width="350"
-                        height="350"
-                    />
+                    <div className="relative">
+                        <Image
+                            src="/assets/man-assets/book.png"
+                            alt="top-left"
+                            width="100"
+                            height="100"
+                            className="absolute top-0 left-0 orbit-element"
+                            style={{ animationDelay: '0s' }}
+                        />
+                        <Image
+                            src="/assets/man-assets/bulb.png"
+                            alt="top-mid"
+                            width="40"
+                            height="40"
+                            className="absolute top-0 right-[43%] orbit-element"
+                            style={{ animationDelay: '1s' }}
+                        />
+                        <Image
+                            src="/assets/man-assets/setting.png"
+                            alt="top-right"
+                            width="100"
+                            height="100"
+                            className="absolute top-0 right-0 orbit-element"
+                            style={{ animationDelay: '2s' }}
+                        />
+
+
+                        <Image
+                            src="/assets/man-assets/paint-brush.png"
+                            alt="mid-left"
+                            width="100"
+                            height="100"
+                            className="absolute top-[25%] left-0 orbit-element"
+                            style={{ animationDelay: '3s' }}
+                        />
+                        <Image
+                            src="/assets/man-assets/global.png"
+                            alt="mid-right"
+                            width="100"
+                            height="100"
+                            className="absolute top-[30%] right-0 orbit-element"
+                            style={{ animationDelay: '4s' }}
+                        />
+
+                        <Image
+                            src="/assets/man-assets/flask.png"
+                            alt="bottom-left"
+                            width="80"
+                            height="80"
+                            className="absolute bottom-0 left-0"
+                            style={{ animationDelay: '5s' }}
+                        />
+                        <Image
+                            src="/assets/man-assets/coffee.png"
+                            alt="bottom-right"
+                            width="80"
+                            height="80"
+                            className="absolute bottom-0 right-0"
+                            style={{ animationDelay: '6s' }}
+                        />
+
+                        <Image
+                            src="/assets/man-assets/boy.png"
+                            alt="gdsc-logo"
+                            width="350"
+                            height="350"
+                        />
+                    </div>
                 </section>
             </section >
             <div className="z-[-1] absolute bottom-0 right-0">
@@ -121,8 +183,8 @@ export default function HeroSection() {
                             y1="0"
                             y2="0"
                         >
-                            <stop stopColor="#00c16b" offset="0"></stop>
-                            <stop stopColor="#00c16b" offset="1"></stop>
+                            <stop stopColor="#059c52" offset="0"></stop>
+                            <stop stopColor="#059c52" offset="1"></stop>
                         </linearGradient>
                         <path d="" fill="url(#lg-0.7659895309868023)" opacity="0.27">
                             <animate
