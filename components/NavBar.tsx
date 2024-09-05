@@ -3,11 +3,15 @@ import Image from "next/image";
 import { buttonVariants } from "./ui/button";
 import NavMenu from "./NavMenu";
 // import { ThemeSwitcher } from "./ThemeSwitcher";
-
+import {
+    SignedIn,
+    SignedOut,
+    UserButton
+} from '@clerk/nextjs';
 
 
 export default async function NavBar() {
-    
+
     return (
         <nav className="w-full shadow-md relative ">
             {/* <div className="bg-gray-900 text-blue-500 w-full m-auto text-center p-2 flex justify-center items-center">
@@ -48,8 +52,13 @@ export default async function NavBar() {
                     <Link href="/events">Events</Link>
                     <Link href="/team">Teams</Link>
                     <Link href="/leaderboard">LeaderBoard</Link>
-                    <Link href="/admin" className={buttonVariants({ variant:'default'})}>Admin</Link>
-
+                    <SignedOut>
+                        {/* <SignInButton /> */}
+                        <Link href="/admin" className={buttonVariants({ variant: 'default' })}>Admin</Link>
+                    </SignedOut>
+                    <SignedIn>
+                        <UserButton />
+                    </SignedIn>
                     {/* <Link href="#"><ThemeSwitcher /></Link> */}
                 </div>
                 <NavMenu className="lg:hidden" />

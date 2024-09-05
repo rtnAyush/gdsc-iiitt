@@ -3,7 +3,7 @@ import { useState } from 'react';
 // import { addStudentDatas, fetchStudentData } from '@/lib/actions/student.action';
 // import parsedData from '@/controllers/studentdata.controller';
 // import toast from 'react-hot-toast';
-import DeleteModal from './DeleteModal';
+
 import {
     Card,
     CardContent,
@@ -29,8 +29,9 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 // import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Button } from '../ui/button';
-import { Input } from '../ui/input';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import DeleteModal from '../DeleteModal';
 
 
 

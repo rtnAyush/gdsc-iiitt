@@ -1,5 +1,5 @@
 import React from 'react'
-import EventForm from '../EventForm'
+import EventForm from '../event/EventForm'
 import {
     Card,
     CardContent,
@@ -8,7 +8,7 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import ModifyEvents from './ModifyEvents';
+
 
 export default function Events() {
     return (
@@ -27,7 +27,7 @@ export default function Events() {
                     </TabsList>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                    <TabsContent value="home"><ModifyEvents /></TabsContent>
+                  
                     <TabsContent value="add-event"><EventForm /></TabsContent>
                 </CardContent>
             </Tabs>

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
-import './globals.css'
+// import './globals.css'
 import Footer from '@/components/Footer'
 import NavBar from '@/components/NavBar'
 import { Toaster } from 'react-hot-toast'
@@ -13,30 +13,65 @@ export const metadata: Metadata = {
     description: 'IIIT-T GDSC is a student developer community at IIIT Trichy. We are a group of students who are passionate about technology and are willing to learn and share our knowledge with others. We conduct workshops, webinars, and other events to help students learn new technologies and build projects.',
 }
 
+// export default function RootLayout({
+//     children,
+// }: {
+//     children: React.ReactNode
+// }) {
+//     return (
+// <html lang="en">
+//     <body className={poppins.className}>
+//         <ThemeProvider
+//             attribute="class"
+//             defaultTheme="light"
+//             enableSystem
+//             disableTransitionOnChange
+//         >
+//             <div className="flex flex-col min-h-screen">
+//                 <NavBar />
+//                 <Toaster position='top-right' />
+//                 <main className="flex-1 overflow-hidden">
+//                     {children}
+//                 </main>
+//                 <Footer />
+//             </div>
+//         </ThemeProvider>
+//     </body>
+// </html>
+//     )
+// }
+
+import {
+    ClerkProvider
+} from '@clerk/nextjs'
+import './globals.css'
 export default function RootLayout({
     children,
 }: {
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
-            <body className={poppins.className}>
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="light"
-                    enableSystem
-                    disableTransitionOnChange
-                >
-                    <div className="flex flex-col min-h-screen">
-                        <NavBar />
-                        <Toaster position='top-right' />
-                        <main className="flex-1 overflow-hidden">
-                            {children}
-                        </main>
-                        <Footer />
-                    </div>
-                </ThemeProvider>
-            </body>
-        </html>
+        <ClerkProvider>
+            <html lang="en">
+                <body className={poppins.className}>
+                    <ThemeProvider
+                        attribute="class"
+                        defaultTheme="light"
+                        enableSystem
+                        disableTransitionOnChange
+                    >
+                        <div className="flex flex-col min-h-screen">
+                            <NavBar />
+                            
+                            <Toaster position='top-right' />
+                            <main className="flex-1 overflow-hidden">
+                                {children}
+                            </main>
+                            <Footer />
+                        </div>
+                    </ThemeProvider>
+                </body>
+            </html>
+        </ClerkProvider>
     )
 }

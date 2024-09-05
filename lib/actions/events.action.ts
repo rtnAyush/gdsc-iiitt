@@ -54,45 +54,44 @@ export async function getEvents(date?: Date, type?: string, quantity?: number) {
     }
 }
 
-export async function postEvent(prevState: any, formData: any) {
-    const title = formData.get("title");
-    const img = formData.get("img");
-    const mode = formData.get("mode");
-    const description = formData.get("description");
-    const date = formData.get("date");
-    if (img === null || img === undefined) {
+export async function postEvent(formData: FormData) {
+    const imgFile = formData.get("imgUrl");
+    if (!imgFile) {
         console.log("No image found");
         return;
     }
 
-    const arrayBuffer = await img.arrayBuffer();
-    const buffer = new Uint8Array(arrayBuffer);
-    const uploadResult = (await new Promise((resolve, reject) => {
-        cloudinary.uploader
-            .upload_stream({}, function (err, result) {
-                if (err) {
-                    reject(err);
-                    return;
-                }
-                resolve(result);
-            })
-            .end(buffer);
-    })) as any;
+    const uploadFormData = new FormData();
+    uploadFormData.append("file", imgFile);
+    uploadFormData.append("upload_preset", "your_upload_preset"); // Add your Cloudinary upload preset
 
-    // const time = formData.get('time')
+    const uploadResponse = await fetch(
+        "https://api.cloudinary.com/v1_1/your_cloud_name/image/upload",
+        {
+            method: "POST",
+            body: uploadFormData,
+        }
+    );
 
-    const mobj = moment(date, "YYYY-MM-DD HH:mm:ss") as any;
+    const uploadResult = await uploadResponse.json();
+    const imageUrl = uploadResult.secure_url;
+
+    const title = formData.get("title") as string;
+    const description = formData.get("description") as string;
+    const dateTime = formData.get("dateTime") as string;
+    // const venue = formData.get("venue") as string;
+    const mode = formData.get("mode") as string;
+
+    const mobj = moment(dateTime, "YYYY-MM-DDTHH:mm:ss") as any;
     const samay = mobj.format() as any;
 
     try {
-        //find if event exists
         const eventTime = await prisma.eventData.findUnique({
             where: {
                 dateTime: samay,
             },
         });
 
-        //if event exists, return error
         if (eventTime) {
             console.log("An event already exists on given date");
 
@@ -102,14 +101,14 @@ export async function postEvent(prevState: any, formData: any) {
             };
         }
 
-        //if event does not exist, create event
         await prisma.eventData.create({
             data: {
-                title: title,
-                img: uploadResult.secure_url,
-                mode: mode,
-                description: description,
+                title,
+                img: imageUrl,
+                mode,
+                description,
                 dateTime: samay,
+                // venue,
             },
         });
         revalidatePath("/admin");

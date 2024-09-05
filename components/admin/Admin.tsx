@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Home from "./Home"
-import UploadEvents from "./Events"
+import UploadEvents from "./event/Events"
 import ModifyTeam from "./ModifyTeam"
 import ModifyLeaderBoard from "./ModifyLeaderBoard"
 import ModifyUsers from "./ModifyUsers"
@@ -11,8 +11,8 @@ export default function LeaderBoardUpload() {
         <main className="flex justify-center items-center my-10">
             <MaxWidthWrapper>
                 <Tabs defaultValue="home">
-                    <div className="overflow-scroll">
-                        <TabsList className="min-w-full">
+                    <div>
+                        <TabsList className="min-w-full scale-110">
                             <TabsTrigger value="home">Home</TabsTrigger>
                             <TabsTrigger value="events">Events</TabsTrigger>
                             <TabsTrigger value="team">Modify Team</TabsTrigger>

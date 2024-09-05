@@ -12,9 +12,9 @@ import { Badge } from "@/components/ui/badge"
 
 import { getEvents } from '@/lib/actions/events.action'
 import { Event } from '@/utils/types'
-import Trash from '../Trash';
+import Trash from '../../Trash';
 import moment from 'moment';
-import CloudinaryImg from '../CloudinaryImg';
+import CloudinaryImg from '../../CloudinaryImg';
 
 export default async function ModifyEvents() {
     const events: any = await getEvents();
