@@ -12,6 +12,9 @@ import {
 
 export default async function NavBar() {
 
+    
+
+
     return (
         <nav className="w-full shadow-md relative ">
             {/* <div className="bg-gray-900 text-blue-500 w-full m-auto text-center p-2 flex justify-center items-center">
